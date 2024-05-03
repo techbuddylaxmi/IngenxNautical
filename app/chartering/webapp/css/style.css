@@ -1,0 +1,20 @@
+.Page{
+    background-color: white;
+}
+.scrollContainer{
+    scrollbar-width: none;
+}
+.planInfo{
+    gap:10px ;
+}
+.charteringHeader{
+    gap:8% ;
+    margin-left: 60px;
+}
+.icontab{
+  margin-top: 5px;
+}
+.headerItem{
+    gap :10px;
+    
+}
