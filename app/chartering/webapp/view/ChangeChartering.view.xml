@@ -46,6 +46,7 @@
                     <Button
                         id="Button4"
                         text="Cancel Chartering No."
+                        press="onCancelChartering"
                     />
                     <Button
                         id="Button5"

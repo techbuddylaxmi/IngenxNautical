@@ -24,8 +24,8 @@
       "NAUTIBTP_NAUTICAL_TRANSACTIO_SRV": {
         "kind": "odata-v2",
         "model": "srv/external/NAUTIBTP_NAUTICAL_TRANSACTIO_SRV",
-        "csrf":true,
-        "csrfInBatch":true,
+        "csrf": true,
+        "csrfInBatch": true,
         "[production]": {
           "credentials": {
             "destination": "Ingenx_OData_SAP",
@@ -74,8 +74,8 @@
       "NAUTIZVOYAPPROVAL_SRV": {
         "kind": "odata-v2",
         "model": "srv/external/NAUTIZVOYAPPROVAL_SRV",
-        "csrf":true,
-        "csrfInBatch":true,
+        "csrf": true,
+        "csrfInBatch": true,
         "[production]": {
           "credentials": {
             "destination": "Ingenx_OData_SAP",

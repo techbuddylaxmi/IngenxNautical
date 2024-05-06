@@ -4,6 +4,53 @@ GET http://localhost:4004/odata/v4/nautical-chartering/voyapprovalSet
 
 ####
 
+GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000542
+
+
+####
+
+PATCH http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
+Content-Type: application/json
+
+{
+    "Zdelete": true,
+  "Chrcdate": "2024-04-30T00:00:00Z",
+  "Chrqsdate": "2024-04-30T00:00:00Z",
+  "Chrqedate": "2024-04-30T00:00:00Z",
+  "Chrqdate": "2024-04-30T00:00:00Z",
+  "Chrexcr": 0,
+  "Ciqty": 0,
+  "Chrnmin": "4000000542",
+  "Chrnmex": "5678",
+  "Chrporg": "GPR2",
+  "Chrporgn": "0",
+  "Chrpgrp": "",
+  "Chrpgrpn": "0",
+  "Chrpayt": "0001",
+  "Chrpaytxt": "0",
+  "Chrinco": "0",
+  "Chrincodis": "0",
+  "Chrincol": "0",
+  "Cimater": "0",
+  "Cimatdes": "0",
+  "Ciuom": "0",
+  "Voyno": "1000000010",
+  "Voynm": "TestVoyg",
+  "Chrven": "",
+  "Chrvenn": "0",
+  "Ciprec": "0",
+  "RefChrnmin": "",
+  "Chrctime": "12:35:01",
+  "Chrqstime": "12:35:01",
+  "Chrqetime": "12:35:01"
+
+
+}
+
+
+
+###
+
 POST http://localhost:4004/odata/v4/nautical-chartering/voyapprovalSet
 Content-Type: application/json
 
@@ -66,3 +113,11 @@ Content-Type: application/json
     }
     
   ]}
+ 
+#####
+
+  DELETE http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000539
+
+  ####
+
+  GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
