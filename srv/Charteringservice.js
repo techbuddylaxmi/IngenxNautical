@@ -29,5 +29,12 @@ module.exports = async (srv) =>
       srv.on('READ', 'voyapprovalSet', req => NAUTIZVOYAPPROVAL_SRV.run(req.query)); 
       srv.on('CREATE', 'voyapprovalSet', req => NAUTIZVOYAPPROVAL_SRV.run(req.query)); 
 
+      const NAUTIZCHATAPPROVAL_SRV = await cds.connect.to("NAUTIZCHATAPPROVAL_SRV"); 
+      srv.on('READ', 'chartapprSet', req => NAUTIZCHATAPPROVAL_SRV.run(req.query)); 
+      srv.on('CREATE', 'chartapprSet', req => NAUTIZCHATAPPROVAL_SRV.run(req.query)); 
+
+      const NAUTIZVOY_VALUEHELP_CDS = await cds.connect.to("NAUTIZVOY_VALUEHELP_CDS"); 
+      srv.on('READ', 'xNAUTIxvoy_valuehelp', req => NAUTIZVOY_VALUEHELP_CDS.run(req.query)); 
+
 
 }

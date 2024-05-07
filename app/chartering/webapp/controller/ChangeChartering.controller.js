@@ -259,6 +259,7 @@ sap.ui.define(
         jsonModel1 = new sap.ui.model.json.JSONModel();
         this.getView().setModel(jsonModel1, "vendorModel1")
         var oTable = this.byId("myTable");
+        var IconTabBar = this.byId("IconTabBar");
         var Vendorarray = [];
 
         getVendorModelData.forEach(x => {
@@ -280,7 +281,7 @@ sap.ui.define(
         console.log(this.getView().getModel('vendorModel1').getData());
 
 
-
+        IconTabBar.setVisible(true);
         oTable.setVisible(true);
 
 
@@ -361,6 +362,70 @@ sap.ui.define(
           sap.m.MessageToast.show("Error while saving data");
         }
       },
+     
+    
+    
+      onSendForApproval: function(){
+        let  ApprovalNo =[];
+        let that = this;
+        let oChrmin = this.byId("charteringNo").getValue();
+        var oBindListSP = that.getView().getModel().bindList("/chartapprSet");
+        try {
+          var saveddata = oBindListSP.create({
+            "Creqno": "",
+            "Chrnmin": oChrmin
+          });
+          console.log("saving data:",saveddata);
+         
+          oBindListSP.requestContexts(0, Infinity).then(function (aContexts) {
+            aContexts.forEach(function (oContext) {
+              if(oContext.getObject().Chrnmin === oChrmin){
+
+                ApprovalNo.push(oContext.getObject());
+              }
+            });
+            let appNo = ApprovalNo[0].Creqno;
+            console.log(appNo);
+            sap.m.MessageToast.show(`voyage Approval no. ${appNo}  created successfully`);
+          })
+         
+        
+        } catch (error) {
+          console.error("Error while saving data:", error);
+          sap.m.MessageToast.show("Error while saving data");
+        }
+
+
+      },
+      onSendForApproval1: function(){
+        let oChrmin = this.byId("charteringNo").getValue();
+
+        let oModel = this.getOwnerComponent().getModel("v2Model");
+        let payload ={
+          "Creqno": "",
+          "Chrnmin": oChrmin
+        }
+
+        oModel.create("/chartapprSet",payload,{
+          success: function(oData){
+            debugger;
+              console.log("odata", oData);
+ 
+              MessageBox.success(`Successfully created chartering Approval - ${oData.Creqno}`, {
+                  title: "chartering Created",
+                  onClose: function () {
+                      console.log("sent approval no. :", oData.Creqno);
+                      console.log(oVoyno);
+                      this.onRefresh();
+                  }.bind(this),
+              });
+            }
+          })
+
+
+
+      },
+    
       
       onCancelChartering: function () {
         const chartNoValue = this.getView().byId("charteringNo").getValue(); // Assuming you have an input field for ChartNo

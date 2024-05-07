@@ -8,7 +8,8 @@
   "dependencies": {
     "@sap-cloud-sdk/http-client": "^3.14.0",
     "@sap-cloud-sdk/resilience": "^3.14.0",
-    "@sap/cds": "^7",
+    "@sap/cds": "^7.9.0",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "express": "^4"
   },
   "devDependencies": {
@@ -86,6 +87,24 @@
           "credentials": {
             "destination": "SandboxPO",
             "path": "/sap/opu/odata/nauti/VOYAPPROVAL_SRV"
+          }
+        }
+      },
+      "NAUTIZCHATAPPROVAL_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/NAUTIZCHATAPPROVAL_SRV",
+        "csrf": true,
+        "csrfInBatch": true,
+        "[production]": {
+          "credentials": {
+            "destination": "Ingenx_OData_SAP",
+            "path": "/sap/opu/odata/nauti/CHATAPPROVAL_SRV"
+          }
+        },
+        "[development]": {
+          "credentials": {
+            "destination": "SandboxPO",
+            "path": "/sap/opu/odata/nauti/CHATAPPROVAL_SRV"
           }
         }
       }

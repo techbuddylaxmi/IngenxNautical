@@ -28,10 +28,11 @@
             xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
             <EntityType Name="xNAUTIxvoy_valuehelpType" sap:label="value help for voyage" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="VoyageNo"/>
+                    <PropertyRef Name="Voyno"/>
                 </Key>
-                <Property Name="VoyageNo" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Voyage No" sap:quickinfo="Voyage Number"/>
-                <Property Name="VoyageName" Type="Edm.String" MaxLength="20" sap:label="Voyage name" sap:quickinfo="Voyage Name"/>
+                <Property Name="Voyno" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Voyage No" sap:quickinfo="Voyage Number"/>
+                <Property Name="Voynm" Type="Edm.String" MaxLength="20" sap:label="Voyage name" sap:quickinfo="Voyage Name"/>
+                <Property Name="Zaction" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Action Taken"/>
             </EntityType>
             <EntityContainer Name="xNAUTIxVOY_VALUEHELP_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="xNAUTIxvoy_valuehelp" EntityType="xNAUTIxVOY_VALUEHELP_CDS.xNAUTIxvoy_valuehelpType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>

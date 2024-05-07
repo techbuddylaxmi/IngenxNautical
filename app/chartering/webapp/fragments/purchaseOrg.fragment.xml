@@ -3,20 +3,19 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">  
     <SelectDialog
-        id="mySelect"
+        id="mySeleclog1"
         noDataText="Loading..."
-        title="Select Purchase Group"
+        title="Select Purchase Org"
        
-        confirm="onPurchaseGroupValueHelpClose"
-        cancel="onPurchaseGroupValueHelpClose"
-        items="{/xNAUTIxpurchGroup}"
+        confirm="onPurchaseOrgValueHelpClose"
+        cancel="onPurchaseOrgValueHelpClose"
+        items="{/xNAUTIxCHARTPURCHASEITEM}"
        
         >
-        <StandardListItem id="_IDGenStand"
+        <StandardListItem id="ardListItem2"
        
-            title="{Ekgrp}"
-            description="{Eknam}"
-         
+            title="{Ekorg}"
+            description="{Ekotx}"
        
             iconDensityAware="false"
             iconInset="false"

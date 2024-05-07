@@ -23,6 +23,15 @@
           "annotations": [],
           "odataVersion": "4.0"
         }
+      },
+      "mainService2": {
+        "uri": "/v2/odata/v4/nautical/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },
@@ -105,10 +114,24 @@
           ]
         },
         {
+          "name": "RouteCreateChartering",
+          "pattern": "createChartering",
+          "target": [
+            "TargetCreateChartering"
+          ]
+        },
+        {
           "name": "RouteChangeChartering",
           "pattern": "changeChartering",
           "target": [
             "TargetChangeChartering"
+          ]
+        },
+        {
+          "name": "RouteDisplayChartering",
+          "pattern": "displayChartering",
+          "target": [
+            "TargetDisplayChartering"
           ]
         }
       ],
@@ -120,12 +143,26 @@
           "viewId": "charteringDashboard",
           "viewName": "charteringDashboard"
         },
+        "TargetCreateChartering": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreateChartering",
+          "viewName": "CreateChartering"
+        },
         "TargetChangeChartering": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
           "viewId": "ChangeChartering",
           "viewName": "ChangeChartering"
+        },
+        "TargetDisplayChartering": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DisplayChartering",
+          "viewName": "DisplayChartering"
         }
       }
     },

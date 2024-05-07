@@ -4,20 +4,20 @@ GET http://localhost:4004/odata/v4/nautical-chartering/voyapprovalSet
 
 ####
 
-GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000542
+GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
 
 
 ####
 
-PATCH http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
+PATCH http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000542
 Content-Type: application/json
 
 {
     "Zdelete": true,
-  "Chrcdate": "2024-04-30T00:00:00Z",
-  "Chrqsdate": "2024-04-30T00:00:00Z",
-  "Chrqedate": "2024-04-30T00:00:00Z",
-  "Chrqdate": "2024-04-30T00:00:00Z",
+  "Chrcdate": "2024-05-08T00:00:00Z",
+  "Chrqsdate": "2024-05-08T00:00:00Z",
+  "Chrqedate": "2024-05-08T00:00:00Z",
+  "Chrqdate": "2024-05-08T00:00:00Z",
   "Chrexcr": 0,
   "Ciqty": 0,
   "Chrnmin": "4000000542",
@@ -114,10 +114,18 @@ Content-Type: application/json
     
   ]}
  
-#####
+###
 
-  DELETE http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000539
+GET  http://localhost:4004/odata/v4/nautical-chartering/chartapprSet/4000000531
 
-  ####
+###
 
-  GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
+POST http://localhost:34537/odata/v4/nautical-chartering/chartapprSet
+Content-Type: application/json
+
+{
+
+   "Creqno": "",
+      "Chrnmin": "4000000550"
+
+}

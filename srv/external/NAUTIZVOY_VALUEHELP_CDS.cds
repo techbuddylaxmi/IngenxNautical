@@ -1,4 +1,4 @@
-/* checksum : d85bde3cc11474a25fca2736d5a9c4bf */
+/* checksum : 903b41c175880889b19dbd2113f9bdb1 */
 @cds.external : true
 @m.IsDefaultEntityContainer : 'true'
 @sap.message.scope.supported : 'true'
@@ -16,9 +16,12 @@ entity NAUTIZVOY_VALUEHELP_CDS.xNAUTIxvoy_valuehelp {
   @sap.display.format : 'UpperCase'
   @sap.label : 'Voyage No'
   @sap.quickinfo : 'Voyage Number'
-  key VoyageNo : String(20) not null;
+  key Voyno : String(20) not null;
   @sap.label : 'Voyage name'
   @sap.quickinfo : 'Voyage Name'
-  VoyageName : String(20);
+  Voynm : String(20);
+  @sap.display.format : 'UpperCase'
+  @sap.label : 'Action Taken'
+  Zaction : String(4);
 };
 

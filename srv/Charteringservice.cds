@@ -1,6 +1,9 @@
 using NAUTIBTP_NAUTICAL_TRANSACTIO_SRV from './external/NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.cds';
 using NAUTIMASTER_BTP_SRV from './external/NAUTIMASTER_BTP_SRV.cds';
 using NAUTIZVOYAPPROVAL_SRV from './external/NAUTIZVOYAPPROVAL_SRV.cds';
+using NAUTIZCHATAPPROVAL_SRV from './external/NAUTIZCHATAPPROVAL_SRV.cds';
+using NAUTIZVOY_VALUEHELP_CDS from './external/NAUTIZVOY_VALUEHELP_CDS.cds';
+
 
 
 service NauticalCharteringService {
@@ -37,5 +40,12 @@ service NauticalCharteringService {
  entity CharteringSet as projection on NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.CharteringSet
     {        Zdelete, Chrcdate, Chrqsdate, Chrqedate, Chrqdate, Chrexcr, Ciqty, key Chrnmin, Chrnmex, Chrporg, Chrporgn, Chrpgrp, Chrpgrpn, Chrpayt, Chrpaytxt, Chrinco, Chrincodis, Chrincol, Cimater, Cimatdes, Ciuom, Voyno, Voynm, Chrven, Chrvenn, Ciprec, RefChrnmin, Chrctime, Chrqstime, Chrqetime     }    
 ;
+ entity chartapprSet as projection on NAUTIZCHATAPPROVAL_SRV.chartapprSet
+    {        key Creqno, key Chrnmin, Zlevel, Uname, Zdate, Ztime, Zcomm, Zaction     }    
+;
+ entity xNAUTIxvoy_valuehelp as projection on NAUTIZVOY_VALUEHELP_CDS.xNAUTIxvoy_valuehelp
+    {        key Voyno, Voynm, Zaction     }    
+;
+
 
 }
