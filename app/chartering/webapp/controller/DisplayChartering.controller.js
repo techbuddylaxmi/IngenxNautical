@@ -154,9 +154,11 @@ sap.ui.define(
           this.getView().getModel("vendorModel1").refresh();
           console.log(this.getView().getModel('vendorModel1').getData());
   
-  
-  
+          var tabbar = this.getView().byId("IconTabBar")
+          tabbar.setVisible(true)
           oTable.setVisible(true);
+         
+
   
   
   
@@ -356,6 +358,9 @@ sap.ui.define(
   
           var oTable = this.byId("myTable");
           oTable.setVisible(false);
+
+          var tabbar = this.getView().byId("IconTabBar")
+          tabbar.setVisible(false)
   
   
         }

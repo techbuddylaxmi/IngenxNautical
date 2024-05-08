@@ -300,6 +300,11 @@ sap.ui.define(
         let oPurchaseOr = this.byId("PurchaseOrg").getValue();
         let oPaymentTerm = this.byId("PaymentTerm").getValue();
         let oVoynm = this.byId("voyname").getValue();
+     
+        if (!oChrmin) {
+          sap.m.MessageToast.show("Please enter Charting No.");
+          return;
+        }
 
         console.log("chartering:", oChrmin);
         console.log("VoyageNo:", oVoyno);
@@ -360,7 +365,7 @@ sap.ui.define(
         let that = this;
         let oChrmin = this.byId("charteringNo").getValue();
         if (!oChrmin) {
-          sap.m.MessageToast.show("Please enter ChartNo");
+          sap.m.MessageToast.show("Please enter Charting No");
           return;
         }
         var oBindListSP = that.getView().getModel().bindList("/chartapprSet");
@@ -460,11 +465,7 @@ sap.ui.define(
 
         var oTable = this.byId("myTable");
         oTable.setVisible(false);
-        let oChrmin = this.byId("charteringNo").getValue();
-        if (!oChrmin) {
-          sap.m.MessageToast.show("Please enter ChartNo");
-          return;
-        }
+       
 
 
       }

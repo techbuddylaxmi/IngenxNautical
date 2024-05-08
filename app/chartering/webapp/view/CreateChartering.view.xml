@@ -7,7 +7,7 @@
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
-                    <Text id="_IDGenText1" class="text1" text="Creating Chartering"/>
+                    <Text id="_IDGenText1" class="text1" text="Create Chartering"/>
                 </contentLeft>
             </Bar>
         </headerContent>

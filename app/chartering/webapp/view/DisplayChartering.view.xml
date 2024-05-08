@@ -243,9 +243,10 @@
         
 
         <IconTabBar
-            id="idIconTabBarNoIcons"
+            id="IconTabBar"
             tabDensityMode="Compact"
             class="icontab"
+            visible="false"
         >
             <items>
                 <IconTabFilter
@@ -256,24 +257,12 @@
                         id="p1"
                         height="300px"
                      >
-                            <FlexBox  class="charteringHeader">
-                                <FlexBox class="headerItem" >
-                                
-                                </FlexBox>
-                                <FlexBox class="headerItem">
-                                
-                                </FlexBox>
-                                <FlexBox class="headerItem" >
-                                
-                                
-                                
-                                </FlexBox>
-                            </FlexBox>
+                            
                        
 
                         
                             <VBox id="tab"  class="tableBox">
-                                <Table id="myTable" items="{vendorModel1>/}" visible="false"  	inset="false" >
+                                <Table id="myTable" items="{vendorModel1>/}" visible="false"  	inset="false" sticky="ColumnHeaders" >
                                         
                         
                                     <columns>

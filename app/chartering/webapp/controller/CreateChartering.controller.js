@@ -1,6 +1,5 @@
 
-
-
+ 
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
@@ -20,9 +19,9 @@ sap.ui.define(
     let sloc;
     return BaseController.extend("com.ingenx.nauti.chartering.controller.CreateChartering", {
       onInit() {
-
+ 
         this.setCreationDateTime();
-
+ 
         let oModel = new sap.ui.model.json.JSONModel();
         this.getView().setModel(oModel, "dataModel");
         let oModel3 = this.getOwnerComponent().getModel();
@@ -30,7 +29,7 @@ sap.ui.define(
         let oBindList4 = oModel3.bindList("/xNAUTIxpurchGroup");
         let oBindList5 = oModel3.bindList("/xNAUTIxCHARTPURCHASEITEM");
         let oBindList6 = oModel3.bindList("/xNAUTIxpaymTerm")
-
+ 
         oBindList3.requestContexts(0, Infinity).then(function (aContexts) {
           aContexts.forEach(function (oContext) {
             getModelData.push(oContext.getObject());
@@ -38,7 +37,7 @@ sap.ui.define(
           oModel.setData(getModelData);
         }.bind(this))
         console.log("mydata", getModelData)
-      
+     
         oBindList4.requestContexts(0, Infinity).then(function (aContexts) {
           aContexts.forEach(function (oContext) {
             getModelData2.push(oContext.getObject());
@@ -46,7 +45,7 @@ sap.ui.define(
           oModel.setData(getModelData2);
         }.bind(this))
         console.log("mydata",getModelData2)
-
+ 
         oBindList5.requestContexts(0, Infinity).then(function (aContexts) {
           aContexts.forEach(function (oContext) {
             getModelData3.push(oContext.getObject());
@@ -54,7 +53,7 @@ sap.ui.define(
           oModel.setData(getModelData3);
         }.bind(this))
         console.log("mydata",getModelData3)
-
+ 
         oBindList6.requestContexts(0, Infinity).then(function (aContexts) {
           aContexts.forEach(function (oContext) {
             getModelData4.push(oContext.getObject());
@@ -63,32 +62,32 @@ sap.ui.define(
         }.bind(this))
         console.log("mydata",getModelData4)
       },
-    
-
+   
+ 
       setCreationDateTime: function () {
         // Get current date and time
         var currentDate = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
         var currentTime = new Date().toTimeString().split(' ')[0]; // Format: HH:MM:SS
-
+ 
         // Set the values to the respective Input fields
         this.byId("Input3").setValue(currentDate); // Set current date
         this.byId("Input5").setValue(currentTime); // Set current time
       },
-
+ 
       onBackPress: function () {
         const oRouter = this.getOwnerComponent().getRouter();
         oRouter.navTo("RouteTransactionDashboard");
       },
-
-    
-
+ 
+   
+ 
   onTokenUpdate: function(oEvent) {
     var aRemovedTokens = oEvent.getParameter("removedTokens");
     if (aRemovedTokens && aRemovedTokens.length > 0) {
         aRemovedTokens.forEach(function(oToken) {
             var sRemovedValue = oToken.getKey(); // Assuming you want to retrieve the key of the removed token
             console.log("Removed token value:", sRemovedValue);
-            
+           
             // Iterate through the table data to find the matching value
             var oTableData = this.getView().getModel("vendorModel").getData(); // Assuming your table data model is named "vendorModel"
             var foundIndex = null;
@@ -98,7 +97,7 @@ sap.ui.define(
                     break;
                 }
             }
-
+ 
             if (foundIndex !== null) {
                 console.log("Matching value found in table at index:", foundIndex);
                 // Remove the row from the table data
@@ -112,33 +111,33 @@ sap.ui.define(
         }.bind(this));
     }
 },
-
+ 
       vendorNo: function () {
         var oView = this.getView();
-
+ 
         if (!this._oTankInfomate) {
           this._oTankInfomate = sap.ui.xmlfragment(oView.getId(), "com.ingenx.nauti.chartering.fragments.vendorChartring", this);
           oView.addDependent(this._oTankInfomate);
         }
         this._oTankInfomate.open();
-
+ 
       },
       onValueHelpClose: function (evt) {
         var oMultiInput = this.byId("VendNo");
         var aSelectedItems = evt.getParameter("selectedItems"),
             oVBox = this.byId("tab"),
             aSelectedVendorIDs = [];
-    
+   
         var oModel = this.getView().getModel("vendorModel");
         var aExistingData = oModel ? oModel.getData() : [];
-    
+   
         if (!oModel) {
             oModel = new sap.ui.model.json.JSONModel();
             this.getView().setModel(oModel, "vendorModel");
         }
-    
+   
         var aExistingTokens = oMultiInput.getTokens();
-    
+   
         if (aSelectedItems && aSelectedItems.length > 0) {
             aSelectedItems.forEach(function (oItem) {
                 var sVendorID = oItem.getBindingContext().getObject().Lifnr;
@@ -146,10 +145,10 @@ sap.ui.define(
                     aSelectedVendorIDs.push(sVendorID);
                 }
             });
-    
+   
             // Remove duplicates from the selected vendor IDs
             aSelectedVendorIDs = Array.from(new Set(aSelectedVendorIDs));
-    
+   
             aSelectedVendorIDs.forEach(function (sVendorID) {
                 if (!aExistingTokens.some(function (oToken) {
                     return oToken.getKey() === sVendorID;
@@ -160,50 +159,50 @@ sap.ui.define(
                     }));
                 }
             });
-    
+   
             oVBox.setVisible(true);
-    
+   
             var aFilteredData = getModelData.filter(function (data) {
                 return aSelectedVendorIDs.includes(data.Lifnr);
             });
-    
+   
             var aCombinedData = aExistingData.concat(aFilteredData);
-            
+           
             aCombinedData = aCombinedData.filter((entry, index, self) =>
                 index === self.findIndex((t) => (
                     t.Lifnr === entry.Lifnr
                 ))
             );
             oModel.setData(aCombinedData);
-    
+   
             console.log("Filtered data based on selected vendors:", aFilteredData);
         } else {
-            
+           
             oVBox.setVisible(false);
         }
         var oTable = this.byId("myTable")
     oTable.setVisible(true);
     },
-    
-    
-    
+   
+   
+   
      
       voyageNo: function () {
         var oView = this.getView();
-
-
+ 
+ 
         if (!this._oTankInfomat) {
           this._oTankInfomat = sap.ui.xmlfragment(oView.getId(), "com.ingenx.nauti.chartering.fragments.voyageChartering", this);
           oView.addDependent(this._oTankInfomat);
         }
         this._oTankInfomat.open();
-
+ 
       },
       onValueHelpClosevoy: function (oEvent) {
         var oSelectedItem = oEvent.getParameter("selectedItem");
-
+ 
         oEvent.getSource().getBinding("items").filter([]);
-
+ 
         if (!oSelectedItem) {
           return;
         }
@@ -213,14 +212,14 @@ sap.ui.define(
         console.log("Final Value", loc);
         sloc = loc.getValue();
         console.log("voy no", sloc);
-
+ 
         console.log("get model data", getModelData);
         var filter = getModelData.filter(function (data) {
-
+ 
           return data.Voyno === sloc
-
+ 
         })
-      
+     
       },
       handleNav: function (evt) {
         var navCon = this.byId("navCon");
@@ -239,27 +238,27 @@ sap.ui.define(
       populateInputField: function (inputField, selectedValue) {
         inputField.setValue(selectedValue);
       },
-
-
+ 
+ 
      
       convertToDateTimeOffset: function (dateStr) {
-      
+     
         const date = new Date(dateStr);
-
+ 
         const year = date.getFullYear();
         const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are 0-indexed
         const day = ('0' + date.getDate()).slice(-2);
-
+ 
         const hours = '00';
         const minutes = '00';
         const seconds = '00';
         const milliseconds = '000';
-
+ 
         const finalStr = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}+05:30`; // Example offset, adjust as needed
-
+ 
         return finalStr;
       },
-
+ 
       purchaseGroupValueHelp  : function () {
         var oView = this.getView();
        
@@ -280,9 +279,9 @@ sap.ui.define(
         return;
       }
       this.byId("PurchaseGroup").setValue(oSelectedItem.getTitle());
-          
+         
       },
-
+ 
       purchaseOrgValueHelp  : function () {
         var oView = this.getView();
        
@@ -305,7 +304,7 @@ sap.ui.define(
       this.byId("PurchaseOrg").setValue(oSelectedItem.getTitle());
        
       },
-
+ 
       paymentTermValueHelp  : function () {
         var oView = this.getView();
        
@@ -340,10 +339,10 @@ sap.ui.define(
         this.byId("PurchaseGroup").setValue("");
         this.byId("PaymentTerm").setValue("");
         this.byId("Save").setEnabled(true); // Save button
-        this.byId("Refresh").setEnabled(true); // Refresh button 
+        this.byId("Refresh").setEnabled(true); // Refresh button
         var oTable = this.byId("myTable")
     oTable.setVisible(false);
-
+ 
       },
       onValueHelpSearch: function (oEvent) {
         var sValue = oEvent.getParameter("value");
@@ -356,8 +355,8 @@ sap.ui.define(
  
         oEvent.getSource().getBinding("items").filter([oFilter]);
       },
-
-
+ 
+ 
       onValueHelpSearch: function (oEvent) {
         var sValue = oEvent.getParameter("value");
  
@@ -380,9 +379,9 @@ sap.ui.define(
  
         oEvent.getSource().getBinding("items").filter([oFilter]);
       },
-
+ 
       onSaveCh: function () {
-        
+        debugger;
         let oDate = this.byId("Input3").getValue();
         let oTime = this.byId("Input5").getValue();
         let oVoynm = this.byId("voyname").getValue();
@@ -394,7 +393,7 @@ sap.ui.define(
         let oPaymentTerm = this.byId("PaymentTerm").getValue();
         let formatedDate = this.convertToDateTimeOffset(oDate);
         let isExistFlag = false;
-        var that = this;
+        let that = this;
         console.log("get model data is:",getModelData2);
         var extractData = getModelData2.filter(function(item){
           return item.Ekgrp === oPurchaseGr
@@ -411,55 +410,34 @@ sap.ui.define(
         }).map(function(item){
           return item.Paytrmtxt
         }).join(', ');
-
-        let voyageNo = this.byId("voyNO").getValue();
-
-        let rModel = this.getOwnerComponent().getModel("v2Model");
-        rModel.read("/xNAUTIxCharteringHeaderItem", {
-          filters: [new Filter("Voyno", FilterOperator.EQ, voyageNo)],
-          success: function (oData) {
-            console.log(oData);
-              if (oData.results.length > 0) {
-               console.log(oVoyno);
-               MessageToast.show(`Chartering for voyage number ${voyageNo} already exists.`);
-                  isExistFlag =true;
-                  return;
-              } else {
-                  
-                  createChartering.call(that);
-              }
-          }.bind(this),
-          error: function (error) {
-              console.error("Error reading chartering data:", error);
-          }
-      });
-
+ 
+     
         console.log(oDate);
         console.log(oVoynm);
         console.log(oVoyno);
-        console.log(oVendorString); 
+        console.log(oVendorString);
         console.log(oPurchaseGr);
         console.log(oPurchaseOr);
         console.log(ochatExt);
         console.log(oTime);
-    
-       function createChartering () {
+   
+     
        
         let oVendorArray = [];
         if (oVendorString) {
-            
-            let vendors = oVendorString.split(","); 
+           
+            let vendors = oVendorString.split(",");
             vendors.forEach(function(vendor) {
-                oVendorArray.push({ "Lifnr": vendor.trim(),"Voyno":oVoyno  }); 
+                oVendorArray.push({ "Lifnr": vendor.trim(),"Voyno":oVoyno  });
             });
         }
         console.log("array of vendors",oVendorArray);
-    
+   
         if (!oVoyno) {
             sap.m.MessageToast.show("Please enter a Voyage Number");
             return;
         }
-    
+   
         if (!ochatExt) {
             sap.m.MessageToast.show("Please enter a External chartering number");
             return;
@@ -468,12 +446,12 @@ sap.ui.define(
           sap.m.MessageToast.show("Please enter only numeric values in the External chartering number field");
           return;
       }
-    
+   
         if (oVendorArray.length === 0) {
             sap.m.MessageToast.show("Please select at least one Vendor");
             return;
         }
-    
+   
         if (!oPurchaseOr) {
             sap.m.MessageToast.show("Please enter a Purchase Organization");
             return;
@@ -481,16 +459,54 @@ sap.ui.define(
         if (!oPaymentTerm){
            sap.m.MessageToast.show("Please enter a Payment Term");
            return;
-
+ 
         }
-      
+ 
+        let voyageNo = this.byId("voyNO").getValue();
+        let rModel = this.getOwnerComponent().getModel();
+        let filters = new Filter("Voyno", FilterOperator.EQ, voyageNo);
+        let oBindList=rModel.bindList("/xNAUTIxCharteringHeaderItem",undefined,undefined,[filters]);
+        oBindList.requestContexts(0,Infinity).then(function(aContexts){
+          let oData=[];
+          aContexts.forEach(function(oContexts){
+            oData.push(oContexts.getObject());
+          });
+          if (oData.length > 0) {
+            console.log(oVoyno);
+               MessageBox.error(`Chartering for voyage number ${voyageNo} already exists.`);
+               isExistFlag =true;
+               return;
+           } else {  
+            createChartering.call(that);
+          }
+        })
+      //   rModel.read("/xNAUTIxCharteringHeaderItem", {
+      //     filters: [new Filter("Voyno", FilterOperator.EQ, voyageNo)],
+      //     success: function (oData) {
+      //       console.log(oData);
+      //         if (oData.results.length > 0) {
+      //          console.log(oVoyno);
+      //             MessageBox.error(`Chartering for voyage number ${voyageNo} already exists.`);
+      //             isExistFlag =true;
+      //             return;
+      //         } else {  
+      //             createChartering.call(that);
+      //         }
+      //     }.bind(this),
+      //     error: function (error) {
+      //         console.error("Error reading chartering data:", error);
+      //     }
+      // });
+ 
+      function createChartering () {
+     
         let oModel = this.getOwnerComponent().getModel("v2Model");
         debugger;
-    
+   
         let payload = {
             "Chrnmin" : "",
             "tovendor" : oVendorArray,
-          
+         
             "tocharteringasso" : {
                 "Chrnmin" : "",
                 "Chrnmex" : ochatExt,
@@ -506,7 +522,7 @@ sap.ui.define(
                 "Chrpgrp" : oPurchaseGr,
                 "Chrpgrpn" : extractData,
                 "Chrexcr" : null,
-                "Chrpayt" : oPaymentTerm, 
+                "Chrpayt" : oPaymentTerm,
                 "Chrpaytxt" : extractData3,
                 "Chrinco" : null,
                 "Chrincodis" : null,
@@ -525,18 +541,18 @@ sap.ui.define(
                
             }
         };
-    
+   
         console.log(payload);
         if( isExistFlag) {
           return;
         }
         // return;
         oModel.create("/xNAUTIxCharteringHeaderItem", payload, {
-          
+         
             success: function(oData){
               debugger;
                 console.log("odata", oData);
-    
+   
                 MessageBox.success(`Successfully created chartering - ${oData.Chrnmin}`, {
                     title: "chartering Created",
                     onClose: function () {
@@ -545,18 +561,18 @@ sap.ui.define(
                         this.onRefresh();
                     }.bind(this),
                 });
-    
+   
                 this.byId("Save").setEnabled(false); // Save button
-                
+               
             }.bind(this),
             error : function(err){
                 console.log(err);
             }
         });
     }
-    
-  } 
-
+   
+  }
+ 
     });
   }
 );

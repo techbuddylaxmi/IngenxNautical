@@ -275,7 +275,7 @@
                        
 
                         
-                              <VBox id="tab"  class="tableBox">
+                           
                              
                                 <Table id="myTable" items="{vendorModel1>/}" visible="false"  	inset="false" sticky="ColumnHeaders">
                                         
@@ -353,7 +353,7 @@
                                     </items>
                                 </Table>
                                 
-                            </VBox>
+                          
                          
                     </Panel>
                 </IconTabFilter>
