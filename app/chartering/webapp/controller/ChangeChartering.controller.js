@@ -21,17 +21,7 @@ sap.ui.define(
       onInit() {
 
 
-        // let oModel = new sap.ui.model.json.JSONModel();
-        // this.getView().setModel(oModel, "dataModel");
-        // let oModel3 = this.getOwnerComponent().getModel();
-        // let oBindList3 = oModel3.bindList("/xNAUTIxCharteringHeaderItem?$expand=tovendor");
-        // oBindList3.requestContexts(0, Infinity).then(function (aContexts) {
-        //   aContexts.forEach(function (oContext) {
-        //     getModelData.push(oContext.getObject());
-        //   });
-        //   oModel.setData(getModelData);
-        // }.bind(this))
-        // console.log("mydata", getModelData)
+       
 
         let oModel2 = new sap.ui.model.json.JSONModel();
         this.getView().setModel(oModel2, "dataModel2");
@@ -369,6 +359,10 @@ sap.ui.define(
         let  ApprovalNo =[];
         let that = this;
         let oChrmin = this.byId("charteringNo").getValue();
+        if (!oChrmin) {
+          sap.m.MessageToast.show("Please enter ChartNo");
+          return;
+        }
         var oBindListSP = that.getView().getModel().bindList("/chartapprSet");
         try {
           var saveddata = oBindListSP.create({
@@ -397,40 +391,12 @@ sap.ui.define(
 
 
       },
-      onSendForApproval1: function(){
-        let oChrmin = this.byId("charteringNo").getValue();
-
-        let oModel = this.getOwnerComponent().getModel("v2Model");
-        let payload ={
-          "Creqno": "",
-          "Chrnmin": oChrmin
-        }
-
-        oModel.create("/chartapprSet",payload,{
-          success: function(oData){
-            debugger;
-              console.log("odata", oData);
- 
-              MessageBox.success(`Successfully created chartering Approval - ${oData.Creqno}`, {
-                  title: "chartering Created",
-                  onClose: function () {
-                      console.log("sent approval no. :", oData.Creqno);
-                      console.log(oVoyno);
-                      this.onRefresh();
-                  }.bind(this),
-              });
-            }
-          })
-
-
-
-      },
-    
+     
       
       onCancelChartering: function () {
         const chartNoValue = this.getView().byId("charteringNo").getValue(); // Assuming you have an input field for ChartNo
         if (!chartNoValue) {
-          MessageToast.show("Please enter ChartNo");
+          sap.m.MessageToast.show("Please enter ChartNo");
           return;
         }
 
@@ -473,7 +439,7 @@ sap.ui.define(
 
 
       onRefresh: function () {
-
+        var oIcontab = this.byId("IconTabBar").setVisible(false)
         this.byId("charteringNo").setValue("");
         this.byId("chartExt").setValue("");
         this.byId("VoyageNo").setValue("");
@@ -494,25 +460,15 @@ sap.ui.define(
 
         var oTable = this.byId("myTable");
         oTable.setVisible(false);
+        let oChrmin = this.byId("charteringNo").getValue();
+        if (!oChrmin) {
+          sap.m.MessageToast.show("Please enter ChartNo");
+          return;
+        }
 
 
       }
       ,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

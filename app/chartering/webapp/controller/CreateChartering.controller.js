@@ -421,7 +421,7 @@ sap.ui.define(
             console.log(oData);
               if (oData.results.length > 0) {
                console.log(oVoyno);
-                  MessageToast.show(`Chartering for voyage number ${voyageNo} already exists.`);
+               MessageToast.show(`Chartering for voyage number ${voyageNo} already exists.`);
                   isExistFlag =true;
                   return;
               } else {
