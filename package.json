@@ -18,7 +18,8 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-chartering": "cds watch --open chartering/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-chartering": "cds watch --open chartering/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-quotation": "cds watch --open quotation/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {

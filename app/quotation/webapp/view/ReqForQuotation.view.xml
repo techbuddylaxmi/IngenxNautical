@@ -1,0 +1,57 @@
+<mvc:View controllerName="com.ingenx.nauti.quotation.controller.ReqForQuotation"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <Page class="Page" >
+        
+       <headerContent>
+            <!-- Your header content goes here -->
+            <Bar id="_IDGenBar2">
+                <contentLeft>
+                    
+                   
+                    <Text id="_IDGenTex" class="text1" text="Request For Quotation"/>
+                </contentLeft>
+                
+            </Bar>
+
+            
+        </headerContent>
+        <subHeader>
+          <Bar id="navar">
+            <contentLeft>
+                <Button id="Button1" text="Sumbit Quotation" />            
+                             
+            </contentLeft>
+          </Bar>
+        </subHeader>
+        
+            
+       
+        <form:SimpleForm  editable="true" backgroundDesign="Translucent">
+        <core:Title  text="Bidding Details"></core:Title>
+           
+            <Label id="_IDGenLabel1" required="true" text="Chartering Request No"/>
+            <Input id="chartering" width="170px" showValueHelp="true" valueHelpRequest=" onValueHelpCharteringRequest" />
+
+            <Label id="_IDGenLabel2" text="Bidding Start Date"  required="true"  ></Label>
+            <DatePicker id="_IDGenDatePicker1" width="170px" placeholder="MM:DD:YY" />
+
+            <Label id="_IDGenLabel3" text="Bidding Start Time"  required="true" />
+            <TimePicker id="_IDGenTimePicker1" width="170px" placeholder="00:00:00" displayFormat="HH:mm:ss" />
+
+            <Label id="_IDGenLabel4" text="Bidding End Date"  required="true"  ></Label>
+            <DatePicker id="_IDGenDatePicker2" width="170px" placeholder="MM:DD:YY"></DatePicker>
+
+            <Label id="_IDGenLabel5" text="Bidding End Time"   required="true"  ></Label>
+            <TimePicker id="_IDGenTimePicker2" width="170px" placeholder="00:00:00" displayFormat="HH:mm:ss"></TimePicker>
+        
+        </form:SimpleForm>
+        
+        
+ 
+    </Page>
+
+    
+</mvc:View>

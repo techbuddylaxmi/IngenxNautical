@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "com.ingenx.nauti.chartering",
+    "id": "com.ingenx.nauti.quotation",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,24 +13,15 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.13.3",
-      "toolsId": "cadc069f-9d8f-4b5a-a293-1104e9e6477f"
+      "toolsId": "286ab4f3-8996-4501-93cf-9335b96c5df1"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/nautical-chartering/",
+        "uri": "/odata/v4/nautical-quotation/",
         "type": "OData",
         "settings": {
           "annotations": [],
           "odataVersion": "4.0"
-        }
-      },
-      "mainService2": {
-        "uri": "/v2/odata/v4/nautical/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
         }
       }
     }
@@ -74,21 +65,11 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "com.ingenx.nauti.chartering.i18n.i18n"
+          "bundleName": "com.ingenx.nauti.quotation.i18n.i18n"
         }
       },
       "": {
         "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "synchronizationMode": "None",
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
-      },
-      "v2Model": {
-        "dataSource": "mainService2",
         "preload": true,
         "settings": {
           "synchronizationMode": "None",
@@ -110,88 +91,60 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "com.ingenx.nauti.chartering.view",
+        "viewPath": "com.ingenx.nauti.quotation.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "RoutecharteringDashboard",
+          "name": "RouteQuotationDashboard",
           "pattern": ":?query:",
           "target": [
-            "TargetcharteringDashboard"
+            "TargetQuotationDashboard"
           ]
         },
         {
-          "name": "RouteCreateChartering",
-          "pattern": "createChartering",
+          "name": "RouteRequestForQuotation",
+          "pattern": "RequestForQuotataion",
           "target": [
-            "TargetCreateChartering"
+            "TargetRequestForQuotation"
           ]
         },
         {
-          "name": "RouteChangeChartering",
-          "pattern": "changeChartering",
+          "name": "RouteCompareRequestForQuotation",
+          "pattern": "CompareRequestForQuotataion",
           "target": [
-            "TargetChangeChartering"
-          ]
-        },
-        {
-          "name": "RouteDisplayChartering",
-          "pattern": "displayChartering",
-          "target": [
-            "TargetDisplayChartering"
-          ]
-        },
-        {
-          "name": "RouteCharteringApproval",
-          "pattern": "charteringApproval",
-          "target": [
-            "TargetCharteringApproval"
+            "TargetCompareRequestForQuotation"
           ]
         }
       ],
       "targets": {
-        "TargetcharteringDashboard": {
+        "TargetQuotationDashboard": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "charteringDashboard",
-          "viewName": "charteringDashboard"
+          "viewId": "QuotationDashboard",
+          "viewName": "QuotationDashboard"
         },
-        "TargetCreateChartering": {
+        "TargetRequestForQuotation": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "CreateChartering",
-          "viewName": "CreateChartering"
+          "viewId": "ReqForQuotation",
+          "viewName": "ReqForQuotation"
         },
-        "TargetChangeChartering": {
+        "TargetCompareRequestForQuotation": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "ChangeChartering",
-          "viewName": "ChangeChartering"
-        },
-        "TargetDisplayChartering": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "DisplayChartering",
-          "viewName": "DisplayChartering"
-        },
-        "TargetCharteringApproval": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "CharteringApproval",
-          "viewName": "CharteringApproval"
+          "viewId": "CompareRequestForQuotation",
+          "viewName": "CompareRequestForQuotation"
         }
       }
     },
     "rootView": {
-      "viewName": "com.ingenx.nauti.chartering.view.App",
+      "viewName": "com.ingenx.nauti.quotation.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

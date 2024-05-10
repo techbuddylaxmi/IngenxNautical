@@ -3,7 +3,7 @@
   xmlns:ui="sap.ui.table" xmlns:u="sap.ui.unified" xmlns:c="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
    xmlns:l="sap.ui.layout" xmlns="sap.m"
     controllerName="com.ingenx.nauti.chartering.controller.CreateChartering" displayBlock="true">
-    <Page id="page" class="page">
+    <Page id="page" class="Page">
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
@@ -21,8 +21,8 @@
           </Bar>
         </subHeader>
 
-         <form:SimpleForm id="_IDGenSimpleForm1" >
-         <core:Title id="_IDGenTitle1" text="Header details"/>
+        <Panel >
+        
         <FlexBox id="_IDGenFlexBox1" class="charteringHeader">
        
  
@@ -78,14 +78,15 @@
                 </FlexBox>
             </VBox>
         </FlexBox>
-        </form:SimpleForm>
-        <IconTabBar id="idIconTabBarNoIcons" tabDensityMode="Compact" class="icontab">
+        </Panel>
+       
+        <IconTabBar id="idIconTabBarNoIcons" tabDensityMode="Compact" class="icontab" >
                   <items>
-                    <IconTabFilter id="_IDGenIconTabFilter1" text="Vendor Info." key="info" >
+                    <IconTabFilter id="_IDGenIconTabFilter1" text="Vendor Detail" key="info" >
                       <Panel id="p1" height="300px">
                       
                          <VBox id="tab" visible="false" class="">
-       <Table id="myTable" items="{vendorModel>/}">
+       <Table id="myTable" items="{vendorModel>/}" >
        	  <headerToolbar>
 			<OverflowToolbar id="_IDGenOverflowToolbar1">
 				<content>

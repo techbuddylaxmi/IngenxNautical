@@ -1,0 +1,54 @@
+<mvc:View controllerName="com.ingenx.nauti.quotation.controller.CompareRequestForQuotation"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+
+    <Page class="Page" >
+        <headerContent>
+            <Bar id="_IDGenBar2">
+                <contentLeft>
+                    
+                   
+                    <Text id="_IDGenText1"
+                        class="text1"
+                        text="Vendor Bidding Score Details"
+                    />
+                </contentLeft>
+                
+            </Bar>
+        </headerContent>
+        <subHeader>
+          <Bar id="navar">
+            <contentLeft>
+                <Button id="Button1" text="Execute" />            
+                             
+            </contentLeft>
+          </Bar>
+        </subHeader>
+        
+        
+        <Text id="EnterDetailsId" text="Enter Details" class="vgheading"></Text>
+        <FlexBox
+                        id="_IDHBox1"
+                        class="headerItem"
+                        alignItems="Center"
+                    >
+                        <Label
+                            id="Lbel1"
+                            text="Chartering Request No:"
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input
+                            id="charteringNo"
+                            value=""
+                            width="200px"
+                            valueHelpRequest="charteringValueHelp"
+                            showValueHelp="true"
+                        />
+                    </FlexBox>
+       
+       
+        
+    </Page>
+    
+</mvc:View>

@@ -11,7 +11,7 @@
         cancel="onValueHelpClose"
         items="{/xNAUTIxBusinessPartner1}"
         multiSelect="true"
-        rememberSelections="true"
+      
         
         >
         <StandardListItem id="_IDGenStandardListIte"

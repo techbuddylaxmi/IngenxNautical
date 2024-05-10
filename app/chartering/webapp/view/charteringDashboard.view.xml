@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" showHeader="false">
-      <FlexBox id="_IDGenFlexBox3"  class="transactionFlexBox">
+        <FlexBox id="_IDGenFlexBox3"  class="transactionFlexBox">
                 <GenericTile id="GenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                     header="Create Chartering" press="onCreateChartering" >
                     <TileContent id="_IDGenTileContent7" >
@@ -33,6 +33,6 @@
                     <ImageContent  src="sap-icon://form"></ImageContent>                
                     </TileContent>
                 </GenericTile>
-                </FlexBox>
+        </FlexBox>
     </Page>
 </mvc:View>

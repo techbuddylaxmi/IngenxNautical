@@ -19,7 +19,7 @@
         class="Page"
     >
         <headerContent>
-            <!-- Your header content goes here -->
+            
             <Bar id="_IDGenBar2">
                 <contentLeft>
                     <Text
@@ -276,12 +276,12 @@
 
                         
                            
-                             
+                             <ScrollContainer id="scrollContainer" height="calc(100% - 50px)" horizontal="true" class="scrollContainer">
                                 <Table id="myTable" items="{vendorModel1>/}" visible="false"  	inset="false" sticky="ColumnHeaders">
                                         
                         
                                     <columns >
-                                        <Column width="80px" minScreenWidth="Tablet" demandPopin="true">
+                                        <Column width="100px" minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Vendor No"  />
                                         </Column>
                                         <Column width="80px"  minScreenWidth="Tablet" demandPopin="true">
@@ -319,7 +319,7 @@
                                         <Column minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="fax No" />
                                         </Column>
-                                        <Column width="100px" minScreenWidth="Tablet" demandPopin="true">
+                                        <Column width="150px" minScreenWidth="Tablet" demandPopin="true">
                                             <Text text="Creation Date" />
                                         </Column>
                                         <Column width="80px" minScreenWidth="Tablet" demandPopin="true">
@@ -352,6 +352,7 @@
                                         </ColumnListItem>
                                     </items>
                                 </Table>
+                                </ScrollContainer>
                                 
                           
                          

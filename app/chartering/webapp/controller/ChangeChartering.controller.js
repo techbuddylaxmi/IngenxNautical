@@ -385,7 +385,7 @@ sap.ui.define(
             });
             let appNo = ApprovalNo[0].Creqno;
             console.log(appNo);
-            sap.m.MessageToast.show(`voyage Approval no. ${appNo}  created successfully`);
+            sap.m.MessageToast.show(`chartering Approval no. ${appNo}  created successfully`);
           })
          
         
@@ -401,7 +401,7 @@ sap.ui.define(
       onCancelChartering: function () {
         const chartNoValue = this.getView().byId("charteringNo").getValue(); // Assuming you have an input field for ChartNo
         if (!chartNoValue) {
-          sap.m.MessageToast.show("Please enter ChartNo");
+          sap.m.MessageToast.show("Please enter ChartingNo");
           return;
         }
 
