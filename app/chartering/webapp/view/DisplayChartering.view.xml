@@ -252,17 +252,20 @@
                 <IconTabFilter
                     text="Vendor Detail"
                     key="info"
+                   
                  >
                      <Panel
                         id="p1"
+                       
                         height="300px"
+                      
                      >
                             
                        
 
                         
-                            <VBox id="tab"  class="tableBox">
-                                <Table id="myTable" items="{vendorModel1>/}" visible="false"  	inset="false" sticky="ColumnHeaders" >
+                           
+                                <Table id="myTable" items="{vendorModel1>/}" visible="false"  	 sticky="ColumnHeaders" >
                                         
                         
                                     <columns>
@@ -338,7 +341,7 @@
                                     </items>
                                 </Table>
                                 
-                            </VBox>
+                           
                     </Panel>
                 </IconTabFilter>
                
@@ -351,82 +354,17 @@
                         id="p3"
                         height="300px"
                     >
-                    <VBox
-                    id="_IDGenVx1"
-                    alignItems="End"
-                    class="charteringItem"
-                 >
-                    <FlexBox
-                        id="_IDHBx1"
-                        class="headerItem"
-                     >
-                        <Label
-                            id="Ll1"
-                            text="Bid Start Date:"
-                            class="sapUiTinyMarginTop"
-
-                             
-                        />
-                        <Input
-                            id="bidStartDate"
-                            value=""
-                            width="200px"
-                             editable="false"
-                           
-                             
-                        />
-                    </FlexBox>
-                    <FlexBox
-                        id="_IDGenHx4"
-                        class="headerItem"
-                    >
-                        <Label
-                            id="Lal3"
-                            text="Bid Start Time:"
-                            class="sapUiTinyMarginTop"
-                        />
-                        <Input
-                            id="bidSTime"
-                            value=""
-                            width="200px"
-                            editable="false"
-                        />
-                    </FlexBox>
-
-                    <FlexBox
-                        id="_IDGenHx2"
-                        class="headerItem"
-                    >
-                        <Label
-                            id="Labl1"
-                            text="Bid End Date:"
-                            class="sapUiTinyMarginTop"
-                        />
-                        <Input
-                            id="bidEndDate"
-                            editable="false"
-                            width="200px"
-                        />
-                    </FlexBox>
-
-                    <FlexBox
-                        id="_IDGenox3"
-                        class="headerItem"
-                    >
-                        <Label
-                            id="Lal2"
-                            text="Bid End Time:"
-                            class="sapUiTinyMarginTop"
-                        />
-                        <MultiInput
-                            id="bidEndTime"
-                           editable="false"
-                            width="200px"
-                              liveChange="vendorNo"  tokenUpdate="onTokenUpdate"
-                        />
-                    </FlexBox>
-                </VBox>
-                        
+                    <form:SimpleForm width="100%" editable="true">
+                        <Label text="Bid Start Date"/>
+                        <Input  id="bidStartDate" value="" width="20%" editable="false"/>
+                        <Label text="Bid Start Time"/>
+                        <Input id="bidSTime" value="" width="20%" editable="false"/>
+                        <Label text="Bid End Date"/>
+                        <Input id="bidEndDate" value="" width="20%" editable="false"/>
+                        <Label text="Bid End Time"/>
+                        <MultiInput id="bidEndTime"  value="" width="20%" liveChange="vendorNo"  tokenUpdate="onTokenUpdate" editable="false"/>
+                    </form:SimpleForm>
+                    
                     </Panel>
                 </IconTabFilter>
                

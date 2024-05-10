@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ######
-GET  http://localhost:4004/odata/v4/nautical-chartering/xNAUTIxCharteringHeaderItem/4000000539?$expand=tovendor
+GET  http://localhost:4004/odata/v4/nautical-chartering/xNAUTIxCharteringHeaderItem?$expand=tovendor
 
 ####
 POST  http://localhost:4004/odata/v4/nautical-chartering/xNAUTIxCharteringHeaderItem
