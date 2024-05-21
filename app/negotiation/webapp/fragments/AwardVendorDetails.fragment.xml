@@ -1,0 +1,76 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Dialog id="_IDDialog"  title="Details" class="sapUiSmallMargin" contentHeight="400px" contentWidth="50%">
+
+ <form:SimpleForm   >
+       <FlexBox  class="flex" >
+    <VBox class="vbo1" width="350px" >
+  <FlexBox   class="headerItem">
+     <Label  text="Voyage Number :"/>
+  <Input   value="{voyagesetModel>/0/Voyno}" editable="false"/>  
+    </FlexBox>
+     <FlexBox  class="headerItem">
+
+     <Label  text="Vendor : "/>
+  <Input  value="{voyagesetModel>/0/Voynm}" editable="false"/>  
+    </FlexBox>
+<FlexBox class="headerItem">
+     <Label class="sapUiTinyMarginTop"
+     text="Commercial Ranking : "/> 
+  <Input  value="{voyagesetModel>/0/Voyty}" editable="false"/>  
+    </FlexBox>
+    <FlexBox class="headerItem">
+     <Label class="sapUiTinyMarginTop" text="Technical Ranking : "/>
+      <Input  value="{voyagesetModel>/0/Carty}" editable="false"/>  
+
+     </FlexBox>
+     <FlexBox   class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Value : "/>
+      <Input   value="{voyagesetModel>/0/Curr}" editable="false"/>  
+
+     </FlexBox>
+     </VBox>
+
+     <VBox  class="vbo2" width="350px">
+     <FlexBox class="headerItem">
+      <Label  class="sapUiTinyMarginTop" text="Bid Date : "/>
+  <Input   value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
+     </FlexBox>
+     <FlexBox  class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Bid Time : "/>
+  <Input value="{voyagesetModel>/0/Frtu}" editable="false"/>  
+     </FlexBox>
+     <FlexBox class="headerItem">
+      <Label class="sapUiTinyMarginTop" text="Charter No. : "/>
+  <Input  value="{voyagesetModel>/0/Frcost}" editable="false"/>  
+     </FlexBox>
+     <FlexBox  class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Code Descr : "/>
+      <Input   value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
+
+     </FlexBox>
+     <FlexBox class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Currency : "/>
+      <Input  value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
+
+     </FlexBox>
+     </VBox>
+     </FlexBox>
+     
+     
+     
+     </form:SimpleForm>
+
+    
+
+
+         <footer>
+        	<OverflowToolbar id="_IDGenOverflowToolbar2" >	
+                <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+                <Button id="_IDGenButto" text="Cancel" press="oncan">
+				</Button>
+			</OverflowToolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>   

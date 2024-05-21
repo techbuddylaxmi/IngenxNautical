@@ -14,7 +14,7 @@ sap.ui.define(
             let dataArray = [];
             let charteringsetModel;
         
-            return BaseController.extend("negotiation.controller.InviteNegotiation", {
+            return BaseController.extend("com.ingenx.nauti.quotation.controller.InviteNegotiation", {
               onInit: function() {
                 var that = this;
  
@@ -51,7 +51,7 @@ sap.ui.define(
         // console.log("CharteringSet",dataArray);
         
                 if (!this._oTankInfomat) {
-                  this._oTankInfomat = sap.ui.xmlfragment(oView.getId(), "negotiation.fragments.CharteringNo", this);
+                  this._oTankInfomat = sap.ui.xmlfragment(oView.getId(), "com.ingenx.nauti.quotation.fragments.CharteringNo", this);
                   oView.addDependent(this._oTankInfomat);
       
                 }
@@ -60,41 +60,7 @@ sap.ui.define(
         
               },
              
-      //   charteringValueHelp: function () {
-      //     var oView = this.getView();
-          
-      //     // Retrieve the input field
-      //     var oCharteringNoInput = oView.byId("charteringNo");
-          
-      //     // Check if the input field was found
-      //     if (!oCharteringNoInput) {
-      //         console.error("Input field with ID 'charteringNo' not found.");
-      //         return;
-      //     }
-          
-      //     // Log the input field object
-      //     console.log("CharteringNo Input Field:", oCharteringNoInput);
-          
-      //     // Retrieve and log the value from the input field
-      //     var ChrnminValue = oCharteringNoInput.getValue();
-      //     console.log("ChrnminValue:", ChrnminValue);
       
-      //     // Check if dataArray is defined and log it
-      //     if (typeof dataArray !== 'undefined') {
-      //         console.log("CharteringSet:", dataArray);
-      //     } else {
-      //         console.log("CharteringSet is not defined");
-      //     }
-      
-      //     // Check if the fragment already exists, if not, create it
-      //     if (!this._oTankInfomat) {
-      //         this._oTankInfomat = sap.ui.xmlfragment(oView.getId(), "negotiation.fragments.CharteringNo", this);
-      //         oView.addDependent(this._oTankInfomat);
-      //     }
-      
-      //     // Open the fragment
-      //     this._oTankInfomat.open();
-      // }
       
         onValueHelpClose1: function (oEvent) {
          
@@ -113,7 +79,7 @@ sap.ui.define(
                 // console.log("Final Value", loc);
                 // console.log("CharteringSet",dataArray);
                 var filterChrValueData=dataArray.filter(obj=>obj.Chrnmin==sloc)
-                // console.log("filterChrValueData",filterChrValueData);
+                console.log("filterChrValueData",filterChrValueData);
                 charteringsetModel.setData(filterChrValueData)
 
                 console.log("charteringsetModel",this.getView().getModel("charteringsetModel")?.oData);
@@ -121,6 +87,12 @@ sap.ui.define(
                 
                 var btnIn = this.getView().byId("ButtonInvite");
                 btnIn.setVisible(true);
+                var btnRef = this.getView().byId("ButtonRefresh");
+                btnRef.setVisible(true);
+                var Compare = this.getView().byId("_IdCompare");
+                Compare.setVisible(false);
+                var Invite = this.getView().byId("_IdInvite");
+                Invite.setVisible(true);
       
                 if (sloc) {
                   var oVBox = this.getView().byId("idVbox"); 
@@ -149,7 +121,7 @@ sap.ui.define(
 
               onSubmitInvite: function () {
                 if (!this._oDialog) {
-                    this._oDialog = sap.ui.xmlfragment("negotiation.fragments.SubmitInvite", this);
+                    this._oDialog = sap.ui.xmlfragment("com.ingenx.nauti.quotation.fragments.SubmitInvite", this);
                     this.getView().addDependent(this._oDialog);
                 }
             
@@ -203,30 +175,13 @@ sap.ui.define(
             onNavigateDetails: function() {
               var oView = this.getView();
               if (!this._oDialog1) {
-                  this._oDialog1 = sap.ui.xmlfragment("negotiation.fragments.InviteNegoDetails", this);
+                  this._oDialog1 = sap.ui.xmlfragment("com.ingenx.nauti.quotation.fragments.InviteNegoDetails", this);
                   oView.addDependent(this._oDialog1);
           
-                  // Set the model to the fragment
-          //         this._oDialog1.setModel(this.getView().getModel("charteringsetModel")?.oData);
-          // console.log("charteringsetModel",this.getView().getModel("charteringsetModel")?.oData);
-          //         // Bind the data to the controls within the fragment
-                  // var oForm = this._oDialog1.getContent()[0].getContent()[0]; // Assuming the form is the first control
-                  // if (oForm) {
-                  //     oForm.bindElement("/"); // Assuming the root path of the model is correct
-                  // }
+            
               }
               this._oDialog1.open();
           },
-          
-
-        //   onNavigateDetails:function () {
-        //     var oView = this.getView();
-        //     if (!this._oDialog1) {
-        //         this._oDialog1 = sap.ui.xmlfragment("negotiation.fragments.InviteNegoDetails", this);
-        //         oView.addDependent(this._oDialog1);
-        //     }
-        //     this._oDialog1.open();
-        // },
         oncancell: function () {
           this._oDialog1.close();
       },

@@ -1,40 +1,41 @@
-<mvc:View controllerName="negotiation.controller.InviteNegotiation"
+<mvc:View controllerName="com.ingenx.nauti.quotation.controller.InviteNegotiation"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%"
-	width="100%"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
     xmlns="sap.m"  	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
     
     >
 
-    <Page id="_IDGenPage1"  showHeader="true" enableScrolling="false"
-        class="sapUiContentPadding">
+    <Page id="_IDGenPage1"  
+        >
         
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
                     
                    
-                    <Text id="_IDGenText1"
+                    <Text id="_IdCompare"
                         class="text1"
-                        text="Invite For Live Freight Negotiation"
+                        text="Compare Request For Quotation" visible="true"
+                    />
+                    <Text id="_IdInvite"
+                        class="text1"
+                        text="Invite For Live Freight Negotiation" visible="false"
                     />
                 </contentLeft>
                 
             </Bar>
         </headerContent>
-        <subHeader>
+    
+        <subHeader >
           <Bar id="navar">
             <contentLeft>
-                <Button id="ButtonInvite" text="Invite" visible="false" press="onSubmitInvite"/>            
+                <Button id="ButtonInvite" text="Invite" visible="false" press="onSubmitInvite" type="Emphasized"/>  
+                <Button id="ButtonRefresh" text="Refresh" visible="false" press="onRefresh" type="Emphasized"/>            
+
                              
             </contentLeft>
           </Bar>
         </subHeader>
-          <ScrollContainer id="ew"
-		height="100%"
-		width="100%"
-		vertical="true"
-		focusable="true">
       
         
         <Text id="EnterDetailsId" text="Enter Details" class="vgheading"></Text>
@@ -156,7 +157,7 @@
 
 
            </VBox>
-           	</ScrollContainer>
+    
             
         
     </Page>

@@ -60,15 +60,15 @@
                    
  <VBox class="Vboxtab" id="idVboxVoyage" visible="false">
  
-                     <Table id="table" items="{/CharteringSet}" mode="MultiSelect" >
+                     <Table id="table" items="{path: 'voyagesetModel>/', sorter: { path: 'Voyno' }}" mode="MultiSelect" >
                 <columns >
                     
                     <Column id="_IDGenColumn1" width="8rem">
-                        <Label id="_IDGenLabel1" text="Chartering No." />
+                        <Label id="_IDGenLabel1" text="Voyage No." />
                     </Column>
                     
                     <Column id="_IDGenColumn2" width="8rem" >
-                        <Label id="_IDGenLabel2" text="Voyage No." />
+                        <Label id="_IDGenLabel2" text="Vender" />
                     </Column>
                     <Column id="_IDGenColumn3" width="8rem">
                         <Label id="_IDGenLabel3" text="Vendor Code" />
@@ -112,36 +112,36 @@
                 </columns>
 
                     <items>
-                    <ColumnListItem id="_IDGenColumnListItem1"
+                    <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="VendorDetails"
                     
                     >
                         <cells>
                             <Text id="_IDGenText2"
-                                text="{Chrnmin}"
+                                text="{voyagesetModel>Voyno}"
                             />
 
                             <Text id="_IDGenText3"
-                                text="{Chrnmex}"
+                                text="{voyagesetModel>Voynm}"
                             />
 
                             <Text id="_IDGenText4"
-                                text="{Chrporg}"
+                                text="{voyagesetModel>Voyty}"
                             />
 
                             <Text id="_IDGenText5"
-                                text="{Chrporgn}"
+                                text="{voyagesetModel>Carty}"
                             />
 
                             <Text id="_IDGenText6"
-                                text="{Chrpayt}"
+                                text="{voyagesetModel>Curr}"
                             />
 
                             <Text id="_IDGenText7"
-                                text="{Voyno}"
+                                text="{voyagesetModel>Bidtype}"
                             />
 
                             <Text id="_IDGenText8"
-                                text="{Voynm}"
+                                text="{voyagesetModel>Frcost}"
                             />
 
                            

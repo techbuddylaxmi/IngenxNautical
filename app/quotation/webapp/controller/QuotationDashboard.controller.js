@@ -17,7 +17,7 @@ sap.ui.define([
               },
               onCompareRequestForQuotation: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("RouteCompareRequestForQuotation");
+                oRouter.navTo("RouteInviteNegotiation");
               },
         });
     });

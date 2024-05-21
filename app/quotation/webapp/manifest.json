@@ -112,10 +112,10 @@
           ]
         },
         {
-          "name": "RouteCompareRequestForQuotation",
-          "pattern": "CompareRequestForQuotataion",
+          "name": "RouteInviteNegotiation",
+          "pattern": "InviteNegotiation",
           "target": [
-            "TargetCompareRequestForQuotation"
+            "TargetInviteNegotiation"
           ]
         }
       ],
@@ -134,12 +134,12 @@
           "viewId": "ReqForQuotation",
           "viewName": "ReqForQuotation"
         },
-        "TargetCompareRequestForQuotation": {
+        "TargetInviteNegotiation": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "CompareRequestForQuotation",
-          "viewName": "CompareRequestForQuotation"
+          "viewId": "InviteNegotiation",
+          "viewName": "InviteNegotiation"
         }
       }
     },

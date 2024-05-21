@@ -11,17 +11,17 @@ sap.ui.define(
             let sloc;
             let getModelData = [];
             let dataArray = [];
-            let charteringsetModel;
+            let voyagesetModel;
         
             return BaseController.extend("negotiation.controller.CompareNegotiation", {
               onInit: function() {
                 var that = this;
  
-                charteringsetModel = new sap.ui.model.json.JSONModel();
-                this.getView().setModel(charteringsetModel, "charteringsetModel");
+                voyagesetModel = new sap.ui.model.json.JSONModel();
+                this.getView().setModel(voyagesetModel, "voyagesetModel");
          
                 let oModel1 = this.getOwnerComponent().getModel();
-                let oBindList = oModel1.bindList("/CharteringSet");
+                let oBindList = oModel1.bindList("/xNAUTIxVOYAGEHEADERTOITEM");
          
                 oBindList.requestContexts(0,Infinity).then(function (aContexts) {
                   // dataArray = [];
@@ -34,7 +34,7 @@ sap.ui.define(
                  
               },
       
-              VoyageValueHelp: function () {
+              VoyageValueHelp: function (oEvent) {
                 var oView = this.getView();
         
         
@@ -58,8 +58,15 @@ sap.ui.define(
                 }
                 this.byId("VoyageNo").setValue(oSelectedItem.getTitle());
                 var loc = this.getView().byId("VoyageNo");
-                console.log("Final Value", loc);
                 sloc = loc.getValue();
+                console.log("sloc", sloc);
+                // console.log("Voyage",dataArray);
+                var filterValueData = dataArray.filter(obj=>obj.Voyno==sloc)
+                console.log("filterValueData",filterValueData);
+                voyagesetModel.setData(filterValueData)
+                console.log("voyagesetModel",this.getView().getModel("voyagesetModel")?.oData);
+
+
                 var btn = this.getView().byId("Button1")
                 btn.setVisible(true);
       
@@ -83,10 +90,25 @@ sap.ui.define(
               onVoyageSearch: function (oEvent) {
                 var sValue1 = oEvent.getParameter("value");
         
-                var oFilter1 = new Filter("Voyno", FilterOperator.Contains, sValue1);
+                var oFilter1 = new Filter("Chrnmin", FilterOperator.Contains, sValue1);
         
                 oEvent.getSource().getBinding("items").filter([oFilter1]);
               },
+
+              
+              VendorDetails: function() {
+              var oView = this.getView();
+              if (!this._oDialog1) {
+                  this._oDialog1 = sap.ui.xmlfragment("negotiation.fragments.AwardVendorDetails", this);
+                  oView.addDependent(this._oDialog1);
+          
+            
+              }
+              this._oDialog1.open();
+          },
+        oncan: function () {
+          this._oDialog1.close();
+      },
              
             });
           }
