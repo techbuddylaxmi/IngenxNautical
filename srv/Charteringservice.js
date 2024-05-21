@@ -10,6 +10,8 @@ module.exports = async (srv) =>
       srv.on('READ', 'xNAUTIxpaymTerm', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
       srv.on('READ', 'xNAUTIxCHARTPURCHASEITEM', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
       srv.on('READ', 'xNAUTIxCHARTERING', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
+      srv.on('READ', 'xNAUTIxVOYAGEHEADERTOITEM', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query));
+
 
       srv.on('CREATE', 'xNAUTIxCharteringHeaderItem', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
       srv.on('DELETE', 'xNAUTIxCharteringHeaderItem', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
@@ -34,7 +36,8 @@ module.exports = async (srv) =>
       srv.on('CREATE', 'chartapprSet', req => NAUTIZCHATAPPROVAL_SRV.run(req.query)); 
 
       const NAUTIZVOY_VALUEHELP_CDS = await cds.connect.to("NAUTIZVOY_VALUEHELP_CDS"); 
-      srv.on('READ', 'xNAUTIxvoy_valuehelp', req => NAUTIZVOY_VALUEHELP_CDS.run(req.query)); 
-
+      srv.on('READ', 'xNAUTIxvoy_valuehelp', req => NAUTIZVOY_VALUEHELP_CDS.run(req.query));
+      
+      
 
 }

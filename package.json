@@ -14,12 +14,14 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@sap/ux-specification": "^1.120.9"
+    "@sap/ux-specification": "^1.120.10"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-chartering": "cds watch --open chartering/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-quotation": "cds watch --open quotation/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-quotation": "cds watch --open quotation/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-negotiation": "cds watch --open negotiation/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-nagotiation": "cds watch --open nagotiation/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -30,7 +32,7 @@
         "csrfInBatch": true,
         "[production]": {
           "credentials": {
-            "destination": "Ingenx_OData_SAP",
+            "destination": "Ingenx_OData_SAP1",
             "path": "/sap/opu/odata/nauti/BTP_NAUTICAL_TRANSACTIO_SRV"
           }
         },

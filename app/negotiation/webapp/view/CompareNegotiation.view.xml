@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.ingenx.nauti.quotation.controller.CompareRequestForQuotation"
+<mvc:View controllerName="negotiation.controller.CompareNegotiation"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%"
 	width="100%"
@@ -11,24 +11,25 @@
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
-                    
                    
                     <Text id="_IDGenText1"
                         class="text1"
-                        text="Vendor Bidding Score Details"
+                        text="Compare Live Freight Report"
                     />
                 </contentLeft>
                 
             </Bar>
         </headerContent>
-        <!-- <subHeader>
+
+          <subHeader>
           <Bar id="navar">
             <contentLeft>
-                <Button id="Button1" text="Execute" />            
+                <Button id="Button1" text="Award Freight Contract" visible="false" />            
                              
             </contentLeft>
           </Bar>
-        </subHeader> -->
+        </subHeader>
+
         <ScrollContainer id="ew"
 		height="100%"
 		width="100%"
@@ -39,25 +40,27 @@
          
         <FlexBox
                         id="_IDHBox1"
-                        
+                        class="headerItem"
+                        alignItems="Center"
                     >
                         <Label
                             id="Lbel1"
-                            text="Chartering Request No :"
+                            text="Voyage Number:"
                             class="sapUiTinyMarginTop"
                         />
                         <Input
-                            id="charteringNo"
+                            id="VoyageNo"
                             value=""
                             width="200px"
-                            valueHelpRequest="charteringValueHelp"
+                            valueHelpRequest="VoyageValueHelp"
                             showValueHelp="true"
                         />
+                         
                     </FlexBox>
                    
- <VBox class="Vboxtab" id="idVbox" visible="false">
+ <VBox class="Vboxtab" id="idVboxVoyage" visible="false">
  
-                     <Table id="table" items="{/CharteringSet}" mode="SingleSelectLeft" >
+                     <Table id="table" items="{/CharteringSet}" mode="MultiSelect" >
                 <columns >
                     
                     <Column id="_IDGenColumn1" width="8rem">
@@ -73,7 +76,7 @@
                     <Column id="_IDGenColumn4" width="13rem">
                         <Label id="_IDGenLabel4" text="Vender Name" />
                     </Column>
-                    <Column id="_IDGenColumn5" width="8rem">
+                    <!-- <Column id="_IDGenColumn5" width="8rem">
                         <Label id="_IDGenLabel5" text="Country Of Origin" />
                     </Column>
                     <Column id="_IDGenColumn6" width="13rem">
@@ -105,7 +108,7 @@
                     </Column>
                      <Column id="_IDGenColumn15" width="11rem">
                         <Label id="_IDGenLabel15" text="Technical Ranking" />
-                    </Column>
+                    </Column> -->
                 </columns>
 
                     <items>
@@ -153,7 +156,7 @@
 
 
            </VBox>
-           	</ScrollContainer>
+           	</ScrollContainer> 
             
         
     </Page>
@@ -163,3 +166,4 @@
     
     
 </mvc:View>
+

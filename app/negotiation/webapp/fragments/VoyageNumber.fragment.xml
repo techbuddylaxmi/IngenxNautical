@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">  
+    <SelectDialog
+        id="idvoyage"
+        noDataText="Loading..."
+        title="Select Voyage No"
+        search="onVoyageSearch"
+        confirm="onValueHelpCloseVoyage"
+        cancel="onValueHelpCloseVoyage"
+        items="{/xNAUTIxVOYAGEHEADERTOITEM}"> 
+        <StandardListItem id="_IDGenStandardListItem2"
+            title="{Voyno}"
+            
+            
+       
+            iconDensityAware="false"
+            iconInset="false"
+            type="Active" />
+    </SelectDialog>
+</core:FragmentDefinition>

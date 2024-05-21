@@ -1,0 +1,87 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Dialog id="_IDGenDialog1"  title="Bidding Time Details" class="sapUiSmallMargin" contentHeight="45%" contentWidth="60%">
+
+     
+     <!-- <form:SimpleForm >
+     
+     <Label text="Bidding Start Date:"/>
+     <DatePicker />
+     <Label text="Bidding Start Time:"/>
+     <TimePicker />
+     <Label text="Bidding End Date:"/>
+     <DatePicker />
+      <Label text="Bidding End Time:"/>
+     <TimePicker />
+     <Label text="Controller Quoted Value:"/>
+     <Input value=""/>
+      <Label text="Unit"/>
+     <Input value=""/>
+     <Label text="Mode of Bidding:"/>
+     <Select />
+    
+     </form:SimpleForm> -->
+
+      <form:SimpleForm id="_IDGenSimpleForm2" >
+       <FlexBox id="_IDGenFlexBox17" class="flex" >
+    <VBox id="_IDGenVBoxh" class="vbo1">
+  <FlexBox id="_IDGenFlexBox221"  class="headerItem">
+     <Label id="_IDGenLab" text="Bidding Start Date :"/>
+     <DatePicker id="_IDGenDatePicker1" width="140px" value="{addBiddingModel>/BiddingStartDate}" />
+     
+    </FlexBox>
+     <FlexBox id="_IDGenFlexBox3" class="headerItem">
+
+     <Label id="_IDGenLabel2" text="Bidding End Date :"/>
+     <DatePicker id="_IDGenDatePicker2" width="145px" value="{addBiddingModel>/BiddingEndDate}" />
+     
+    </FlexBox>
+<FlexBox id="_IDGenFlexBox4" class="headerItem">
+     <Label id="_IDGenLabel3" class="sapUiTinyMarginTop"
+     text="Controller Quoted Value :"/>
+     <Input id="_IDGenInput1" value="{addBiddingModel>CQV}" width="250px"/>
+    </FlexBox>
+    <FlexBox id="_IDGenFlexBox51" class="headerItem">
+     <Label id="_IDGenLabel4" class="sapUiTinyMarginTop" text="Mode of Bidding :"/>
+     <Select id="modeSelect" selectedKey="{addBiddingModel>/Mode}">
+                <core:Item key="Mode1" text="Mode 1"/>
+                <core:Item key="Mode2" text="Mode 2"/>
+                <core:Item key="Mode3" text="Mode 3"/>
+            </Select>
+     </FlexBox>
+     </VBox>
+
+     <VBox id="_IDGenVBox2" class="vbo2">
+     <FlexBox id="_IDGenFlexBox6" class="headerItem">
+      <Label id="_IDGenLabel5" class="sapUiTinyMarginTop" text="Bidding Start Time :"/>
+     <TimePicker id="_IDGenTimePicker1" width="145px" value="{addBiddingModel>/BiddingStartTime}" />
+     </FlexBox>
+     <FlexBox id="_IDGenFlexBox7" class="headerItem">
+     <Label id="_IDGenLabel6" class="sapUiTinyMarginTop" text="Bidding End Time :"/>
+    <TimePicker id="_IDGenTimePicker2"  width="150px" value="{addBiddingModel>/BiddingEndTime}"/>
+     </FlexBox>
+     <FlexBox id="_IDGenFlexBox8" class="headerItem">
+      <Label id="_IDGenLabel7" class="sapUiTinyMarginTop" text="Unit : "/>
+     <Input id="_IDGenInput2" value="{addBiddingModel>/Unit}" width="170px"/>
+     </FlexBox>
+     </VBox>
+     </FlexBox>
+     
+     
+     
+     </form:SimpleForm>
+
+
+
+         <footer>
+        	<OverflowToolbar id="_IDGenOverflowToolbar1" >	
+                <ToolbarSpacer id="_IDGenToolbarSpacer1"/>		
+				<Button id="_IDGenButton1" type="Accept" text="Save" press="onSave">
+				</Button>
+                <Button id="_IDGenButton2" type="Reject" text="Cancel" press="onCancel">
+				</Button>
+			</OverflowToolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>   

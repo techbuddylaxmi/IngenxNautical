@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.ingenx.nauti.quotation.controller.CompareRequestForQuotation"
+<mvc:View controllerName="negotiation.controller.InviteNegotiation"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%"
 	width="100%"
@@ -8,6 +8,7 @@
 
     <Page id="_IDGenPage1"  showHeader="true" enableScrolling="false"
         class="sapUiContentPadding">
+        
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
@@ -15,35 +16,33 @@
                    
                     <Text id="_IDGenText1"
                         class="text1"
-                        text="Vendor Bidding Score Details"
+                        text="Invite For Live Freight Negotiation"
                     />
                 </contentLeft>
                 
             </Bar>
         </headerContent>
-        <!-- <subHeader>
+        <subHeader>
           <Bar id="navar">
             <contentLeft>
-                <Button id="Button1" text="Execute" />            
+                <Button id="ButtonInvite" text="Invite" visible="false" press="onSubmitInvite"/>            
                              
             </contentLeft>
           </Bar>
-        </subHeader> -->
-        <ScrollContainer id="ew"
+        </subHeader>
+          <ScrollContainer id="ew"
 		height="100%"
 		width="100%"
 		vertical="true"
 		focusable="true">
+      
         
         <Text id="EnterDetailsId" text="Enter Details" class="vgheading"></Text>
-         
-        <FlexBox
-                        id="_IDHBox1"
-                        
-                    >
+        <VBox id="_IDGenVBoxo" class="Vboxlab">
+        <HBox >
                         <Label
                             id="Lbel1"
-                            text="Chartering Request No :"
+                            text="Chartering Request No  : "
                             class="sapUiTinyMarginTop"
                         />
                         <Input
@@ -53,11 +52,15 @@
                             valueHelpRequest="charteringValueHelp"
                             showValueHelp="true"
                         />
-                    </FlexBox>
+                        </HBox>
+
+                        </VBox>
+                        
+                
                    
  <VBox class="Vboxtab" id="idVbox" visible="false">
  
-                     <Table id="table" items="{/CharteringSet}" mode="SingleSelectLeft" >
+                     <Table id="table" items="{path: 'charteringsetModel>/', sorter: { path: 'Chrnmin' }}" mode="MultiSelect"  >
                 <columns >
                     
                     <Column id="_IDGenColumn1" width="8rem">
@@ -76,69 +79,69 @@
                     <Column id="_IDGenColumn5" width="8rem">
                         <Label id="_IDGenLabel5" text="Country Of Origin" />
                     </Column>
-                    <Column id="_IDGenColumn6" width="13rem">
+                    <!-- <Column id="_IDGenColumn6" width="13rem">
                         <Label id="_IDGenLabel6" text="Score-Country Of Origin" />
-                    </Column>
-                    <Column id="_IDGenColumn7" width="8rem">
+                    </Column> -->
+                    <!-- <Column id="_IDGenColumn7" width="8rem">
                         <Label id="_IDGenLabel7" text="Class Of Vessel" />
-                    </Column>
-                    <Column id="_IDGenColumn8" width="8rem">
+                    </Column> -->
+                    <!-- <Column id="_IDGenColumn8" width="8rem">
                         <Label id="_IDGenLabel8" text="Last Port Of Call" />
-                    </Column>
+                    </Column> -->
                     <Column id="_IDGenColumn9" width="8rem">
                         <Label id="_IDGenLabel9" text="Freight" />
                     </Column>
                      <Column id="_IDGenColumn10" width="8rem">
                         <Label id="_IDGenLabel10" text="Freight UOM" />
                     </Column>
-                     <Column id="_IDGenColumn11" width="8rem">
+                     <!-- <Column id="_IDGenColumn11" width="8rem">
                         <Label id="_IDGenLabel11" text="Currency" />
-                    </Column>
-                     <Column id="_IDGenColumn12" width="8rem">
+                    </Column> -->
+                     <!-- <Column id="_IDGenColumn12" width="8rem">
                         <Label id="_IDGenLabel12" text="Total Score" />
-                    </Column>
+                    </Column> -->
                      <Column id="_IDGenColumn13" width="13rem">
                         <Label id="_IDGenLabel13" text="Eligibility for Reverse Bidding" />
                     </Column>
-                     <Column id="_IDGenColumn14" width="11rem">
+                     <!-- <Column id="_IDGenColumn14" width="11rem">
                         <Label id="_IDGenLabel14" text="Commercial Ranking" />
-                    </Column>
-                     <Column id="_IDGenColumn15" width="11rem">
+                    </Column> -->
+                     <!-- <Column id="_IDGenColumn15" width="11rem">
                         <Label id="_IDGenLabel15" text="Technical Ranking" />
-                    </Column>
+                    </Column> -->
                 </columns>
 
                     <items>
                     <ColumnListItem id="_IDGenColumnListItem1"
-                    
+                    type="Navigation" press="onNavigateDetails"
                     >
                         <cells>
                             <Text id="_IDGenText2"
-                                text="{Chrnmin}"
+                                text="{charteringsetModel>Chrnmin}"
                             />
 
                             <Text id="_IDGenText3"
-                                text="{Chrnmex}"
+                                text="{charteringsetModel>Chrnmex}"
                             />
 
                             <Text id="_IDGenText4"
-                                text="{Chrporg}"
+                                text="{charteringsetModel>Chrporg}"
                             />
 
                             <Text id="_IDGenText5"
-                                text="{Chrporgn}"
+                                text="{charteringsetModel>Chrporgn}"
                             />
 
                             <Text id="_IDGenText6"
-                                text="{Chrpayt}"
+                                text="{charteringsetModel>Chrpayt}"
                             />
 
                             <Text id="_IDGenText7"
-                                text="{Voyno}"
+                                text="{charteringsetModel>Voyno}"
                             />
 
                             <Text id="_IDGenText8"
-                                text="{Voynm}"
+                                text="{charteringsetModel>Voynm}"
                             />
 
                            
