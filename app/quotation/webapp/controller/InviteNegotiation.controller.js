@@ -41,14 +41,6 @@ sap.ui.define(
                 // var newValue = oEvent?.oSource?.mProperties?.value                
                 // console.log("New value entered in charteringNo input field:", newValue);
                 var oView = this.getView();
-                
-        // var oCharteringNoInput = this.getView().byId("charteringNo")  
-        // var ChrnminValue = oCharteringNoInput ? oCharteringNoInput.getValue() : null;      
-        
-        // console.log("ChrnminValue",oCharteringNoInput);
-        // console.log("ChrnminValue",ChrnminValue);
-
-        // console.log("CharteringSet",dataArray);
         
                 if (!this._oTankInfomat) {
                   this._oTankInfomat = sap.ui.xmlfragment(oView.getId(), "com.ingenx.nauti.quotation.fragments.CharteringNo", this);
@@ -131,7 +123,7 @@ sap.ui.define(
                     BiddingEndDate: null,
                     BiddingStartTime: null,
                     BiddingEndTime: null,
-                    CQV: "",
+                    ControllerQuotedValue: "",
                     Unit: "",
                     Mode: "Mode1" // Set default mode if needed
                 });
@@ -149,9 +141,14 @@ sap.ui.define(
                 var BiddingEndDate = oData.BiddingEndDate;
                 var BiddingStartTime = oData.BiddingStartTime;
                 var BiddingEndTime = oData.BiddingEndTime;
-                var CQV = oData.CQV;
+                var ControllerQuotedValue = oData.ControllerQuotedValue;
                 var Unit = oData.Unit;
                 var Mode = oData.Mode;
+
+                if (!BiddingStartDate || !BiddingEndDate || !BiddingStartTime || !BiddingEndTime || !ControllerQuotedValue || !Unit || !Mode) {
+                  MessageBox.error("Please fill all fields");
+                  return;
+              }
             
                 // Close the dialog
                 this._oDialog.close();
@@ -161,7 +158,7 @@ sap.ui.define(
                 console.log("Bidding End Date:", BiddingEndDate);
                 console.log("Bidding Start Time:", BiddingStartTime);
                 console.log("Bidding End Time:", BiddingEndTime);
-                console.log("Controller Quoted Value:", CQV);
+                console.log("Controller Quoted Value:", ControllerQuotedValue);
                 console.log("Unit:", Unit);
                 console.log("Mode of Bidding:", Mode);
                 MessageBox.success("Vendor invite successfully");
@@ -185,6 +182,9 @@ sap.ui.define(
         oncancell: function () {
           this._oDialog1.close();
       },
+      onSelectItem: function(){
+        this.getView().byId("ButtonInvite").setEnabled(true)
+      }
              
             });
           }
