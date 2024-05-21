@@ -14,7 +14,7 @@ sap.ui.define(
             let dataArray = [];
             let charteringsetModel;
         
-            return BaseController.extend("com.ingenx.nauti.quotation.controller.InviteNegotiation", {
+            return BaseController.extend("com.ingenx.nauti.quotation.controller.CompareRequestForQuotation", {
               onInit: function() {
                 var that = this;
  

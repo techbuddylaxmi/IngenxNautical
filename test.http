@@ -133,3 +133,25 @@ Content-Type: application/json
 ###
 
 POST http://localhost:34537/odata/v4/NauticalQuotationService/xNAUTIxfinalbid
+Content-Type: application/json
+{
+"Voyno": "",
+"Lifnr":"",
+"Zcode":"",
+"Biddate":"",
+"Bidtime":"",
+"Chrnmin":"",
+"CodeDesc":"",
+"Value":"",
+"Cvalue":"",
+"Cunit":"",
+"Chrqsdate":"",
+"Chrqstime":"",
+"Chrqedate":"",
+"Chrqetime":"",
+"DoneBy":"",
+"Uname":"",
+"Stat":"",
+"Zmode":"",
+"Zcom":""
+}
