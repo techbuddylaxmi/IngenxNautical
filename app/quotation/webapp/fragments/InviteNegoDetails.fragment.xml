@@ -64,7 +64,7 @@
          <footer>
         	<OverflowToolbar id="_IDGenOverflowToolbar2" >	
                 <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
-                <Button id="_IDGenButto" text="Cancel" press="oncancell">
+                <Button id="_IDGenButto" text="Close" press="oncancell">
 				</Button>
 			</OverflowToolbar>
         </footer>

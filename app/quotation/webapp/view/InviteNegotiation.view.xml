@@ -30,7 +30,7 @@
           <Bar id="navar">
             <contentLeft>
                 <Button id="ButtonInvite" text="Invite" visible="false" enabled="false" press="onSubmitInvite" type="Emphasized"/>  
-                <Button id="ButtonRefresh" text="Refresh" visible="false" press="onRefresh" type="Emphasized"/>            
+                <!-- <Button id="ButtonRefresh" text="Refresh" visible="false" press="onRefresh" type="Emphasized"/>             -->
 
                              
             </contentLeft>
@@ -40,6 +40,7 @@
         
         <Text id="EnterDetailsId" text="Enter Details" class="vgheading"></Text>
         <VBox id="_IDGenVBoxo" class="Vboxlab">
+        <HBox >
         <HBox >
                         <Label
                             id="Lbel1"
@@ -54,7 +55,22 @@
                             showValueHelp="true"
                         />
                         </HBox>
+                        <HBox class="hboxv"  id="idVoyge" visible="false">
 
+<Label
+                            text="  Voyage No. : "
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input
+                       
+                            editable="false"
+                            value="{charteringsetModel>/0/Voyno}"
+                            width="200px"
+                            
+                           
+                        />
+                        </HBox>
+                        </HBox>
                         </VBox>
                         
                 
@@ -64,13 +80,13 @@
                      <Table id="table" items="{path: 'charteringsetModel>/', sorter: { path: 'Chrnmin' }}" mode="MultiSelect" selectionChange="onSelectItem"  >
                 <columns >
                     
-                    <Column id="_IDGenColumn1" width="8rem">
+                    <!-- <Column id="_IDGenColumn1" width="8rem">
                         <Label id="_IDGenLabel1" text="Chartering No." />
                     </Column>
                     
                     <Column id="_IDGenColumn2" width="8rem" >
                         <Label id="_IDGenLabel2" text="Voyage No." />
-                    </Column>
+                    </Column> -->
                     <Column id="_IDGenColumn3" width="8rem">
                         <Label id="_IDGenLabel3" text="Vendor Code" />
                     </Column>
@@ -117,13 +133,13 @@
                     type="Navigation" press="onNavigateDetails"
                     >
                         <cells>
-                            <Text id="_IDGenText2"
+                            <!-- <Text id="_IDGenText2"
                                 text="{charteringsetModel>Chrnmin}"
                             />
 
                             <Text id="_IDGenText3"
                                 text="{charteringsetModel>Chrnmex}"
-                            />
+                            /> -->
 
                             <Text id="_IDGenText4"
                                 text="{charteringsetModel>Chrporg}"

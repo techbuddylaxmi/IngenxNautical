@@ -8,4 +8,11 @@ module.exports = async (srv) =>
       srv.on('READ', 'CharteringSet', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
       srv.on('UPDATE', 'CharteringSet', req => NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.run(req.query)); 
 
+      
+// Using CDS API      
+const NAUTICOMP_QUOT_SRV = await cds.connect.to("NAUTICOMP_QUOT_SRV"); 
+srv.on('READ', 'xNAUTIxcomp_quot', req => NAUTICOMP_QUOT_SRV.run(req.query)); 
+srv.on('READ', 'xNAUTIxfinalbid', req => NAUTICOMP_QUOT_SRV.run(req.query)); 
+srv.on('CREATE', 'xNAUTIxfinalbid', req => NAUTICOMP_QUOT_SRV.run(req.query)); 
+
 }

@@ -76,11 +76,12 @@ sap.ui.define(
 
                 console.log("charteringsetModel",this.getView().getModel("charteringsetModel")?.oData);
                 // var ChrModel=this.getModel()
-                
+                var idVoyge = this.getView().byId("idVoyge");
+                idVoyge.setVisible(true);
                 var btnIn = this.getView().byId("ButtonInvite");
                 btnIn.setVisible(true);
-                var btnRef = this.getView().byId("ButtonRefresh");
-                btnRef.setVisible(true);
+                // var btnRef = this.getView().byId("ButtonRefresh");
+                // btnRef.setVisible(true);
                 var Compare = this.getView().byId("_IdCompare");
                 Compare.setVisible(false);
                 var Invite = this.getView().byId("_IdInvite");
