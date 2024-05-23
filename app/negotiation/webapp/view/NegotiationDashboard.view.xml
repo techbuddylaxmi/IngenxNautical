@@ -3,12 +3,6 @@
     xmlns="sap.m">
          <Page id="page" showHeader="false" >
          <FlexBox id="_IDGenFlexBox3"  class="transactionFlexBox">
-                <GenericTile id="GenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                    header="Invite For Live Freight Negotiation" press="onInviteNegotiation" >
-                    <TileContent id="_IDGenTileContent7" >
-                    <ImageContent  src="sap-icon://email-read"></ImageContent>                
-                    </TileContent>
-                </GenericTile>
                 <GenericTile id="GenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                     header="Compare Live Freight Negotiation" press="onCompareNegotiation">
                     <TileContent id="_IDGenTileContent8" >

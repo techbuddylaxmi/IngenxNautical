@@ -3,56 +3,68 @@
     xmlns:l="sap.ui.layout">
     <Dialog id="_IDDialog"  title="Details" class="sapUiSmallMargin" contentHeight="400px" contentWidth="50%">
 
- <form:SimpleForm   >
+ <Panel >
        <FlexBox  class="flex" >
-    <VBox class="vbo1" width="350px" >
+    <VBox class="flex" alignItems="End" >
   <FlexBox   class="headerItem">
-     <Label  text="Voyage Number :"/>
-  <Input   value="{voyagesetModel>/0/Voyno}" editable="false"/>  
+     <Label class="sapUiTinyMarginTop" text="Chartering Number :"/>
+  <Input   value="{ChartingFilterModel>/CharterNumber}" editable="false"/>  
     </FlexBox>
      <FlexBox  class="headerItem">
 
-     <Label  text="Vendor : "/>
-  <Input  value="{voyagesetModel>/0/Voynm}" editable="false"/>  
+     <Label class="sapUiTinyMarginTop"  text="VoyageNumber : "/>
+  <Input  value="{ChartingFilterModel>/VoyageNumber}" editable="false"/>  
     </FlexBox>
 <FlexBox class="headerItem">
      <Label class="sapUiTinyMarginTop"
-     text="Commercial Ranking : "/> 
-  <Input  value="{voyagesetModel>/0/Voyty}" editable="false"/>  
+     text="Vendor : "/> 
+  <Input  value="{ChartingFilterModel>/Vendor}" editable="false"/>  
     </FlexBox>
     <FlexBox class="headerItem">
-     <Label class="sapUiTinyMarginTop" text="Technical Ranking : "/>
-      <Input  value="{voyagesetModel>/0/Carty}" editable="false"/>  
+     <Label class="sapUiTinyMarginTop" text="CommercialRanking :"/>
+      <Input  value="{ChartingFilterModel>/CommercialRanking}" editable="false"/>  
 
      </FlexBox>
      <FlexBox   class="headerItem">
-     <Label  class="sapUiTinyMarginTop" text="Value : "/>
-      <Input   value="{voyagesetModel>/0/Curr}" editable="false"/>  
+     <Label  class="sapUiTinyMarginTop" text="Code : "/>
+      <Input   value="{ChartingFilterModel>/Code}" editable="false"/>  
+
+     </FlexBox>
+      <FlexBox   class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Done By Vendor : "/>
+      <Input   value="{ChartingFilterModel>/CreatedBy}" editable="false"/>  
+
+     </FlexBox>
+     <FlexBox  class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Value :"/>
+      <Input   value="{ChartingFilterModel>/Value}" editable="false"/>  
 
      </FlexBox>
      </VBox>
 
-     <VBox  class="vbo2" width="350px">
+     <VBox  class="flex" alignItems="End" >
      <FlexBox class="headerItem">
       <Label  class="sapUiTinyMarginTop" text="Bid Date : "/>
-  <Input   value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
+  <Input   value="{ChartingFilterModel>/BidDate}" editable="false"/>  
      </FlexBox>
      <FlexBox  class="headerItem">
      <Label  class="sapUiTinyMarginTop" text="Bid Time : "/>
-  <Input value="{voyagesetModel>/0/Frtu}" editable="false"/>  
-     </FlexBox>
-     <FlexBox class="headerItem">
-      <Label class="sapUiTinyMarginTop" text="Charter No. : "/>
-  <Input  value="{voyagesetModel>/0/Frcost}" editable="false"/>  
-     </FlexBox>
-     <FlexBox  class="headerItem">
-     <Label  class="sapUiTinyMarginTop" text="Code Descr : "/>
-      <Input   value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
-
+  <Input value="{ChartingFilterModel>/BidTime}" editable="false"/>  
      </FlexBox>
      <FlexBox class="headerItem">
      <Label  class="sapUiTinyMarginTop" text="Currency : "/>
-      <Input  value="{voyagesetModel>/0/Bidtype}" editable="false"/>  
+      <Input  value="{ChartingFilterModel>/Curr}" editable="false"/>  
+
+     </FlexBox>
+     <FlexBox class="headerItem">
+      <Label class="sapUiTinyMarginTop" text="Score : "/>
+  <Input  value="{ChartingFilterModel>/Score}" editable="false"/>  
+     </FlexBox>
+     
+     
+      <FlexBox   class="headerItem">
+     <Label  class="sapUiTinyMarginTop" text="Status : "/>
+      <Input   value="{ChartingFilterModel>/Status}" editable="false"/>  
 
      </FlexBox>
      </VBox>
@@ -60,7 +72,7 @@
      
      
      
-     </form:SimpleForm>
+    </Panel>
 
     
 
@@ -68,7 +80,7 @@
          <footer>
         	<OverflowToolbar id="_IDGenOverflowToolbar2" >	
                 <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
-                <Button id="_IDGenButto" text="Cancel" press="oncan">
+                <Button id="_IDGenButto" text="Close" press="oncan">
 				</Button>
 			</OverflowToolbar>
         </footer>

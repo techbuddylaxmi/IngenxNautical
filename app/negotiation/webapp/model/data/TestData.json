@@ -1,0 +1,88 @@
+{
+    "TestData": [
+        {
+            "VoyageNumber": "1000000001",
+            "Vendor": "2100000001",
+            "CommercialRanking": "L1",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000001",
+            "Score":"7600",
+            "Value": "599999.0",
+            "Curr": "INR",
+            "CreatedBy": "X",
+            "Status": "Yes"
+        },
+        {
+            "VoyageNumber": "1000000002",
+            "Vendor": "2100000005",
+            "CommercialRanking": "L1",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000002",
+            "Score":"8690",
+            "Value": "597899.0",
+            "Curr": "INR",
+            "CreatedBy": "Y",
+            "Status": "Yes"
+        },
+        {
+            "VoyageNumber": "1000000001",
+            "Vendor": "2100000002",
+            "CommercialRanking": "L2",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000001",
+            "Score":"761",
+            "Value": "599999.0",
+            "Curr": "INR",
+            "CreatedBy": "X",
+            "Status": "Yes"
+        },
+        {
+            "VoyageNumber": "1000000002",
+            "Vendor": "21000000011",
+            "CommercialRanking": "L2",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000002",
+            "Score":"926",
+            "Value": "599999.0",
+            "Curr": "INR",
+            "CreatedBy": "X",
+            "Status": "Yes"
+        },
+        {
+            "VoyageNumber": "1000000003",
+            "Vendor": "21000000090",
+            "CommercialRanking": "L2",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000008",
+            "Score":"99",
+            "Value": "599999.0",
+            "Curr": "INR",
+            "CreatedBy": "X",
+            "Status": "Yes"
+        },
+        {
+            "VoyageNumber": "1000000003",
+            "Vendor": "21000000090",
+            "CommercialRanking": "L1",
+            "Code": "FREIG",
+            "BidDate": "06-05-2023",
+            "BidTime": "12:00:00",
+            "CharterNumber": "4000000008",
+            "Score":"777",
+            "Value": "599999.0",
+            "Curr": "INR",
+            "CreatedBy": "X",
+            "Status": "Yes"
+        }
+    ]
+}

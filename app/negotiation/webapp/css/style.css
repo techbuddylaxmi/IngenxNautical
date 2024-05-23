@@ -32,3 +32,39 @@
 #_IDGenText1{
     font-size: large; margin: 1%;
 }
+.sapUiContentPadding{
+    background-color: white;
+}
+.headerItem{
+    gap :10px;
+    margin-left: 30%;
+}
+.vgheading{
+    margin: 10px;
+    padding: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+.Vboxtab{
+    margin: 5% 0%;
+}
+
+.headerItem{
+    margin: 3%;
+     gap:10px;
+}
+/* #_IDGenLabel7{
+    margin-left: 25%;
+} */
+.flex{
+    margin-top: 1%; margin-left: 1%;
+        gap:8% ;
+        /* margin-left: 60px; */
+}
+
+.hboxv{
+    margin-left: 5%;  
+  }
+ 
+
+

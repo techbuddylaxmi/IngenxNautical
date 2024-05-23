@@ -1,13 +1,11 @@
 <mvc:View controllerName="negotiation.controller.CompareNegotiation"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%"
-	width="100%"
-    xmlns="sap.m"  	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+    xmlns="sap.m"  	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" 
     
     >
 
-    <Page id="_IDGenPage1"  showHeader="true" enableScrolling="false"
-        class="sapUiContentPadding">
+    <Page id="_IDGenPage1"  >
         <headerContent>
             <Bar id="_IDGenBar2">
                 <contentLeft>
@@ -24,83 +22,97 @@
           <subHeader>
           <Bar id="navar">
             <contentLeft>
-                <Button id="Button1" text="Award Freight Contract" visible="false" />            
+                <Button id="ButtonAward" text="Award Freight Contract" visible="false" enabled="false" type="Emphasized"/>            
                              
             </contentLeft>
           </Bar>
         </subHeader>
 
-        <ScrollContainer id="ew"
-		height="100%"
-		width="100%"
-		vertical="true"
-		focusable="true">
+       
         
         <Text id="EnterDetailsId" text="Enter Details" class="vgheading"></Text>
          
-        <FlexBox
-                        id="_IDHBox1"
-                        class="headerItem"
-                        alignItems="Center"
-                    >
+        <VBox id="_IDGenVBoxo" class="Vboxlab">
+        <HBox >
+        <HBox >
                         <Label
                             id="Lbel1"
-                            text="Voyage Number:"
+                            text="Chartering Request No  : "
                             class="sapUiTinyMarginTop"
                         />
                         <Input
-                            id="VoyageNo"
+                            id="CharteringNo"
                             value=""
                             width="200px"
-                            valueHelpRequest="VoyageValueHelp"
+                            valueHelpRequest="chartValueHelp"
                             showValueHelp="true"
                         />
-                         
-                    </FlexBox>
+                        </HBox>
+                        <HBox class="hboxv"  id="idVoyge" visible="false">
+
+<Label
+                            text="  Voyage No. : "
+                            class="sapUiTinyMarginTop"
+                        />
+                        <Input
+                       
+                            editable="false"
+                            value="{testDataModel>/0/VoyageNumber}"
+                            width="200px"
+                            
+                           
+                        />
+                        </HBox>
+                        </HBox>
+                        </VBox>
+        
                    
  <VBox class="Vboxtab" id="idVboxVoyage" visible="false">
  
-                     <Table id="table" items="{path: 'voyagesetModel>/', sorter: { path: 'Voyno' }}" mode="MultiSelect" >
+                     <Table id="table" items="{ path: 'testDataModel>/' ,  sorter: {
+                path: 'Score',
+                descending: false
+            }}" mode="MultiSelect"  selectionChange="oncheckdata" >
                 <columns >
                     
-                    <Column id="_IDGenColumn1" width="8rem">
-                        <Label id="_IDGenLabel1" text="Voyage No." />
+                    <!-- <Column id="_IDGenColumn1" width="8rem">
+                        <Label id="_IDGenLabel1" text="Chartering No." />
                     </Column>
                     
                     <Column id="_IDGenColumn2" width="8rem" >
-                        <Label id="_IDGenLabel2" text="Vender" />
-                    </Column>
+                        <Label id="_IDGenLabel2" text="Voyage No." />
+                    </Column> -->
                     <Column id="_IDGenColumn3" width="8rem">
-                        <Label id="_IDGenLabel3" text="Vendor Code" />
+                        <Label id="_IDGenLabel3" text="Vendor" />
                     </Column>
                     <Column id="_IDGenColumn4" width="13rem">
-                        <Label id="_IDGenLabel4" text="Vender Name" />
+                        <Label id="_IDGenLabel4" text="Commercial Ranking" />
                     </Column>
-                    <!-- <Column id="_IDGenColumn5" width="8rem">
-                        <Label id="_IDGenLabel5" text="Country Of Origin" />
+                     <Column id="_IDGenColumn5" width="8rem" >
+                        <Label id="_IDGenLabel5" text="Score"  />
                     </Column>
-                    <Column id="_IDGenColumn6" width="13rem">
-                        <Label id="_IDGenLabel6" text="Score-Country Of Origin" />
-                    </Column>
+                    <!-- <Column id="_IDGenColumn6" width="13rem">
+                        <Label id="_IDGenLabel6" text="Bid Date" />
+                    </Column> -->
                     <Column id="_IDGenColumn7" width="8rem">
-                        <Label id="_IDGenLabel7" text="Class Of Vessel" />
+                        <Label id="_IDGenLabel7" text="Status" />
                     </Column>
-                    <Column id="_IDGenColumn8" width="8rem">
+                    <!-- <Column id="_IDGenColumn8" width="8rem">
                         <Label id="_IDGenLabel8" text="Last Port Of Call" />
-                    </Column>
-                    <Column id="_IDGenColumn9" width="8rem">
-                        <Label id="_IDGenLabel9" text="Freight" />
+                    </Column> -->
+                    <!-- <Column id="_IDGenColumn9" width="8rem">
+                        <Label id="_IDGenLabel9" text="Value" />
                     </Column>
                      <Column id="_IDGenColumn10" width="8rem">
-                        <Label id="_IDGenLabel10" text="Freight UOM" />
+                        <Label id="_IDGenLabel10" text="Currency" />
                     </Column>
                      <Column id="_IDGenColumn11" width="8rem">
-                        <Label id="_IDGenLabel11" text="Currency" />
+                        <Label id="_IDGenLabel11" text="" />
                     </Column>
                      <Column id="_IDGenColumn12" width="8rem">
                         <Label id="_IDGenLabel12" text="Total Score" />
-                    </Column>
-                     <Column id="_IDGenColumn13" width="13rem">
+                    </Column> -->
+                     <!-- <Column id="_IDGenColumn13" width="13rem">
                         <Label id="_IDGenLabel13" text="Eligibility for Reverse Bidding" />
                     </Column>
                      <Column id="_IDGenColumn14" width="11rem">
@@ -108,7 +120,7 @@
                     </Column>
                      <Column id="_IDGenColumn15" width="11rem">
                         <Label id="_IDGenLabel15" text="Technical Ranking" />
-                    </Column> -->
+                    </Column>  -->
                 </columns>
 
                     <items>
@@ -116,33 +128,36 @@
                     
                     >
                         <cells>
-                            <Text id="_IDGenText2"
-                                text="{voyagesetModel>Voyno}"
+                            <!-- <Text id="_IDGenText2"
+                                text="{testDataModel>CharterNumber}"
                             />
 
                             <Text id="_IDGenText3"
-                                text="{voyagesetModel>Voynm}"
-                            />
+                                text="{testDataModel>VoyageNumber}"
+                            /> -->
 
                             <Text id="_IDGenText4"
-                                text="{voyagesetModel>Voyty}"
+                                text="{testDataModel>Vendor}"
                             />
 
                             <Text id="_IDGenText5"
-                                text="{voyagesetModel>Carty}"
+                                text="{testDataModel>CommercialRanking}"
                             />
-
-                            <Text id="_IDGenText6"
-                                text="{voyagesetModel>Curr}"
+                            <Text id="_IDGenText6" 
+                                text="{testDataModel>Score}"
                             />
 
                             <Text id="_IDGenText7"
-                                text="{voyagesetModel>Bidtype}"
+                                text="{testDataModel>Status}"
+                            />
+
+                            <!-- <Text id="_IDGenText7"
+                                text="{testDataModel>Bidtype}"
                             />
 
                             <Text id="_IDGenText8"
-                                text="{voyagesetModel>Frcost}"
-                            />
+                                text="{testDataModel>Frcost}"
+                            /> -->
 
                            
                         </cells>
@@ -156,7 +171,7 @@
 
 
            </VBox>
-           	</ScrollContainer> 
+          
             
         
     </Page>

@@ -8,9 +8,9 @@
         search="onVoyageSearch"
         confirm="onValueHelpCloseVoyage"
         cancel="onValueHelpCloseVoyage"
-        items="{/xNAUTIxVOYAGEHEADERTOITEM}"> 
+        items="{CharterNumberModel>/}"> 
         <StandardListItem id="_IDGenStandardListItem2"
-            title="{Voyno}"
+            title="{CharterNumberModel>CharterNumber}"
             
             
        
