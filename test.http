@@ -1,157 +1,30 @@
-
-
-GET http://localhost:4004/odata/v4/nautical-chartering/voyapprovalSet
-
-####
-
-GET http://localhost:4004/odata/v4/nautical-chartering/CharteringSet
-
-
-####
-
-PATCH http://localhost:4004/odata/v4/nautical-chartering/CharteringSet/4000000542
-Content-Type: application/json
-
-{
-    "Zdelete": true,
-  "Chrcdate": "2024-05-08T00:00:00Z",
-  "Chrqsdate": "2024-05-08T00:00:00Z",
-  "Chrqedate": "2024-05-08T00:00:00Z",
-  "Chrqdate": "2024-05-08T00:00:00Z",
-  "Chrexcr": 0,
-  "Ciqty": 0,
-  "Chrnmin": "4000000542",
-  "Chrnmex": "5678",
-  "Chrporg": "GPR2",
-  "Chrporgn": "0",
-  "Chrpgrp": "",
-  "Chrpgrpn": "0",
-  "Chrpayt": "0001",
-  "Chrpaytxt": "0",
-  "Chrinco": "0",
-  "Chrincodis": "0",
-  "Chrincol": "0",
-  "Cimater": "0",
-  "Cimatdes": "0",
-  "Ciuom": "0",
-  "Voyno": "1000000010",
-  "Voynm": "TestVoyg",
-  "Chrven": "",
-  "Chrvenn": "0",
-  "Ciprec": "0",
-  "RefChrnmin": "",
-  "Chrctime": "12:35:01",
-  "Chrqstime": "12:35:01",
-  "Chrqetime": "12:35:01"
-
-
-}
-
+###
+GET http://localhost:4004/odata/v4/nautical-quotation/xNAUTIxfinalbid
 
 
 ###
 
-POST http://localhost:4004/odata/v4/nautical-chartering/voyapprovalSet
+POST http://localhost:4004/odata/v4/nautical-quotation/xNAUTIxfinalbid
 Content-Type: application/json
 
 {
-     "Vreqno": "",
-      "Voyno": "100000034"
-      
-
-}
-
-######
-GET  http://localhost:4004/odata/v4/nautical-chartering/xNAUTIxCharteringHeaderItem?$expand=tovendor
-
-####
-POST  http://localhost:4004/odata/v4/nautical-chartering/xNAUTIxCharteringHeaderItem
-Content-Type: application/json
-
-{
-
-  "Chrnmin": "4000000539",
-  "Chrnmex": "234589087",
-  "Chrcdate": "2024-05-02",
-  "Chrctime": "15:39:16",
-  "Chrqsdate": null,
-  "Chrqstime": "00:00:00",
-  "Chrqedate": null,
-  "Chrqetime": "00:00:00",
-  "Chrqdate": "2024-05-02",
-  "Chrporg": "GPR1",
-  "Chrporgn": "0",
-  "Chrpgrp": "TS2",
-  "Chrpgrpn": "0",
-  "Chrexcr": 0,
-  "Chrpayt": "0001",
-  "Chrpaytxt": "0",
-  "Chrinco": "0",
-  "Chrincodis": "0",
-  "Chrincol": "0",
-  "Cimater": "0",
-  "Cimatdes": "0",
-  "Ciqty": 0,
-  "Ciuom": "0",
-  "Voyno": "1000000002",
-  "Voynm": "Voyage1",
-  "Chrven": "",
-  "Chrvenn": "0",
-  "Ciprec": "0",
-  "Zdelete": true,
-  "RefChrnmin": "",
-  "tovendor": [
-    {
-      "Chrnmin": "4000000539",
-      "Lifnr": "100001",
-      "Voyno": "1000000002"
-    },
-    {
-      "Chrnmin": "4000000539",
-      "Lifnr": "100005",
-      "Voyno": "1000000002"
+      "Voyno": "10000004521",
+      "Lifnr": "2900000000",
+      "Zcode": "A",
+      "Biddate": "2024-08-24",
+      "Bidtime": "15:05:13",
+      "Chrnmin": "4000000009",
+      "CodeDesc": "FRIEGHT COST",
+      "Value": "",
+      "Cvalue": 200000,
+      "Cunit": "",
+      "Chrqsdate": "2024-08-25",
+      "Chrqstime": "13:16:40",
+      "Chrqedate": "2024-08-25",
+      "Chrqetime": "18:17:00",
+      "DoneBy": false,
+      "Uname": "PJAIN",
+      "Stat": "",
+      "Zmode": "AUTO",
+      "Zcom": ""
     }
-    
-  ]}
- 
-###
-
-GET  http://localhost:4004/odata/v4/nautical-chartering/chartapprSet/4000000531
-
-###
-
-POST http://localhost:34537/odata/v4/nautical-chartering/chartapprSet
-Content-Type: application/json
-
-{
-
-   "Creqno": "",
-      "Chrnmin": "4000000550"
-
-}
-
-###
-
-POST http://localhost:34537/odata/v4/NauticalQuotationService/xNAUTIxfinalbid
-Content-Type: application/json
-{
-"Voyno": "",
-"Lifnr":"",
-"Zcode":"",
-"Biddate":"",
-"Bidtime":"",
-"Chrnmin":"",
-"CodeDesc":"",
-"Value":"",
-"Cvalue":"",
-"Cunit":"",
-"Chrqsdate":"",
-"Chrqstime":"",
-"Chrqedate":"",
-"Chrqetime":"",
-"DoneBy":"",
-"Uname":"",
-"Stat":"",
-"Zmode":"",
-"Zcom":""
-}

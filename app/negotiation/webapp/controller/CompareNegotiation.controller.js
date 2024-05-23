@@ -34,7 +34,6 @@ sap.ui.define(
               
               CharterNumberModel.setData(uniqueArray)
               oView.setModel(CharterNumberModel,"CharterNumberModel")
-              
               console.log("uniqueArray",oView.getModel("CharterNumberModel"));
 
                 oModel.setData(data);
