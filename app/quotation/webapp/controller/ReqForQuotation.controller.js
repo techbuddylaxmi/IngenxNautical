@@ -82,6 +82,11 @@ sap.ui.define([
         console.log("obidStartT" , obidStartT)
         let obidEndD = this.byId("bidEndD").getValue();
         let obidEndT = this.byId("bidEndT").getValue();
+        
+ if (!oCharteringRqNo || !obidStartD || !obidStartT || !obidEndD || !obidEndT) {
+          sap.m.MessageToast.show("Please fill in all fields.");
+          return; // Exit the function if any field is empty
+      }
 
         var currentDate = new Date();
         currentDate.setHours(0, 0, 0, 0);

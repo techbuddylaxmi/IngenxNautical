@@ -190,7 +190,6 @@ sap.ui.define(
                   MessageBox.error("Please fill all fields");
                   return;
               }
-            
                 // Close the dialog
                 this._oDialog.close();
             
@@ -203,6 +202,8 @@ sap.ui.define(
                 console.log("Unit:", Unit);
                 console.log("Mode of Bidding:", Mode);
                 MessageBox.success("Email send successfully");
+              // addBiddingModel.setValue("");
+
             },
             
             onCancel: function () {
