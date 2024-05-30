@@ -1,5 +1,7 @@
 using NAUTIBTP_NAUTICAL_TRANSACTIO_SRV from './external/NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.cds';
 using NAUTICOMP_QUOT_SRV from './external/NAUTICOMP_QUOT_SRV.cds';
+using { nauticalDb  } from '../db/schema';
+
 
 
 service NauticalQuotationService{
@@ -24,7 +26,6 @@ entity CharteringSet as projection on NAUTIBTP_NAUTICAL_TRANSACTIO_SRV.Charterin
     {        key Voyno, key Lifnr, key Zcode, Value, Cvalue, Cunit, Chrnmin, CodeDesc, Biddate, Bidtime, Zcom     }    
 ;
 
-
-
+entity calculateRankings as projection on nauticalDb.calculateRankings;
 
 }

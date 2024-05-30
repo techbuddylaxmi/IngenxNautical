@@ -1,5 +1,6 @@
 ###
-GET http://localhost:4004/odata/v4/nautical-quotation/xNAUTIxfinalbid
+
+GET http://localhost:4004/odata/v4/nautical-quotation/calculateRankings?$filter=Chrnmin eq '4000000011' 
 
 
 ###
@@ -28,3 +29,7 @@ Content-Type: application/json
       "Zmode": "AUTO",
       "Zcom": ""
     }
+
+    ###
+    
+    GET http://localhost:4004/odata/v4/nautical-quotation/calculateRankings
