@@ -40,19 +40,33 @@
 }
 .headerItem{
     margin: 3%;
-     gap:10px;
+     gap:15px;
 }
 /* #_IDGenLabel7{
     margin-left: 25%;
 } */
 .flex{
     margin-top: 1%; margin-left: 1%;
-        gap:8% ;
-        /* margin-left: 60px; */
+        gap:1% ;
+       
 }
 
 
 .hboxv{
   margin-left: 5%;  
+}
+element.style {
+    justify-content: flex;
+    text-align: center;
+    justify-content: center;
+}
+.rank{
+    padding-left : 43px;
+}
+.score{
+    padding-left:11px;
+}
+.eligibility{
+    padding-left:14px;
 }
 

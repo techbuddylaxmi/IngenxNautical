@@ -15,69 +15,15 @@ module.exports = async (srv) => {
 
     srv.on('READ', 'calculateRankings', async (req) => {
         console.log("values", req._queryOptions.$filter);
-        // return;
-        // console.log("hello ",req._queryOptions);
+        
         let Chrnmin = req._queryOptions.$filter.split(' ')[2];
         Chrnmin = Chrnmin.replace(/'/g, '');
-        // console.log("Chrnmin ", Chrnmin);
-        const charminData = await NAUTICOMP_QUOT_SRV.run(SELECT.from('xNAUTIxvenBid').where({Chrnmin}));
-        console.log("charminData ", charminData);
+
+        const charminData = await NAUTICOMP_QUOT_SRV.run(SELECT.from('xNAUTIxvenBid').where({ Chrnmin }));
         let Voyno = charminData[0].Voyno;
-        // console.log("Voyno ", charminData);
-        const voyageData = await NAUTICOMP_QUOT_SRV.run(SELECT.from('xNAUTIxitemBid').where({Voyno}));
-        // console.log("voyageData ", voyageData);
-         
-        // let vendorScore = [
-        //     {
-        //         "Voyno": "456789",
-        //         "Chrnmin": "456789",
-        //         "Vendors" : [
-        //             {
-        //                 "vendorId" : "12345",
-        //                 "score" : 12,
-        //                 "eligible" : true,
-        //                 "bidDetails" : [
-        //                     {
-        //                         "CodeDesc" : "countryOfOrgin",
-        //                         "Value" : "India",
-        //                         "fScore" : 3
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 "vendorId" : "12345",
-        //                 "score" : 12,
-        //                 "eligible" : true,
-        //                 "bidDetails" : [
-        //                     {
-        //                         "CodeDesc" : "countryOfOrgin",
-        //                         "Value" : "India",
-        //                         "fScore" : 3
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 "vendorId" : "12345",
-        //                 "score" : 12,
-        //                 "eligible" : true,
-        //                 "bidDetails" : [
-        //                     {
-        //                         "CodeDesc" : "countryOfOrgin",
-        //                         "Value" : "India",
-        //                         "fScore" : 3
-        //                     }
-        //                 ]
-        //             }
 
-        //         ] 
-        //     },
-            
-        // ]
-        // console.log("vendorScore", vendorScore );
-        // return vendorScore;
-       
+        const voyageData = await NAUTICOMP_QUOT_SRV.run(SELECT.from('xNAUTIxitemBid').where({ Voyno }));
 
-        
         const rankedVendors = calculateAndRank(voyageData, charminData);
         console.log("rankedVendors", rankedVendors);
 
@@ -87,9 +33,10 @@ module.exports = async (srv) => {
     function calculateAndRank(voyageData, charminData) {
         const vendorScores = calculateScores(voyageData, charminData);
         const rankedVendors = rankVendors(vendorScores, charminData);
-        
-        const groupedRankedVendors = groupedByVoynoAndChrnmin(rankedVendors);
-        
+        const rankedWithCommercial = calculateCommercialRank(rankedVendors);
+
+        const groupedRankedVendors = groupedByVoynoAndChrnmin(rankedWithCommercial);
+
         return groupedRankedVendors;
     }
 
@@ -103,8 +50,8 @@ module.exports = async (srv) => {
                     Chrnmin: vendor.Chrnmin,
                     score: 0,
                     eligible: true,
+                    Cvalue: vendor.Cvalue,
                     bidDetails: []
-                   
                 };
             }
 
@@ -122,6 +69,7 @@ module.exports = async (srv) => {
                 vendorScores[vendor.Lifnr].bidDetails.push({
                     CodeDesc: expected.CodeDesc,
                     Value: vendor.Value,
+                    Cvalue: vendor.Cvalue,
                     fScore: fScore
                 });
             }
@@ -138,6 +86,7 @@ module.exports = async (srv) => {
                 Chrnmin: vendorScores[vendor].Chrnmin,
                 score: vendorScores[vendor].score,
                 eligible: vendorScores[vendor].eligible,
+                Cvalue: vendorScores[vendor].Cvalue,
                 bidDetails: vendorScores[vendor].bidDetails
             }))
             .sort((a, b) => b.score - a.score);
@@ -148,7 +97,27 @@ module.exports = async (srv) => {
             if (!rankCounter[key]) {
                 rankCounter[key] = 1;
             }
-            vendor.rank = `T${rankCounter[key]++}`;
+            vendor.Trank = `T${rankCounter[key]++}`;
+        });
+
+        return rankedVendors;
+    }
+
+    function calculateCommercialRank(rankedVendors) {
+        const groupedByChrnmin = rankedVendors.reduce((acc, vendor) => {
+            if (!acc[vendor.Chrnmin]) {
+                acc[vendor.Chrnmin] = [];
+            }
+            acc[vendor.Chrnmin].push(vendor);
+            return acc;
+        }, {});
+
+        Object.keys(groupedByChrnmin).forEach(key => {
+            groupedByChrnmin[key].sort((a, b) => a.Cvalue - b.Cvalue);
+
+            groupedByChrnmin[key].forEach((vendor, index) => {
+                vendor.Crank = `C${index + 1}`;
+            });
         });
 
         return rankedVendors;
@@ -170,7 +139,8 @@ module.exports = async (srv) => {
                 vendorId: vendor.vendorId,
                 score: vendor.score,
                 eligible: vendor.eligible,
-                rank: vendor.rank,
+                Trank: vendor.Trank,
+                Crank: vendor.Crank,
                 bidDetails: vendor.bidDetails
             });
         });
